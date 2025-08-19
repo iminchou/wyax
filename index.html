@@ -26,63 +26,46 @@ body {
 }
 
 /* logo 图片缩小 50% */
-.logo-container {
-  position: relative; /* 方便放置邮箱 */
-  display: inline-block;
+img {
+  width: 50%; /* 原始尺寸的 50% */
+  height: auto;
+  margin-bottom: 5px; /* COMING SOON 紧贴在下面 */
   opacity: 0;
   animation: fadeIn 1s ease forwards;
-}
-
-/* logo 图片 */
-.logo-container img {
-  width: 50%; /* 缩小50% */
-  height: auto;
-  cursor: pointer;
-  display: block;
-}
-
-/* 悬停显示邮箱 */
-.email-tooltip {
-  display: none;
-  position: absolute;
-  top: 100%; /* logo 下方 */
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 5px;
-  font-size: 1em;
-  font-weight: 300;
-  color: #888888;
-  background-color: rgba(255,255,255,0.9);
-  padding: 2px 6px;
-  border-radius: 4px;
-  white-space: nowrap;
-  text-decoration: none;
-}
-
-/* 鼠标悬停时显示邮箱 */
-.logo-container:hover .email-tooltip {
-  display: inline-block;
 }
 
 /* COMING SOON 文字样式 */
 h1 {
-  font-size: 1em;
-  font-weight: 300;
-  color: #888888;
+  font-size: 1em;       /* 字体小 */
+  font-weight: 300;     /* 字体细 */
+  color: #888888;       /* 灰色 */
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   animation-delay: 0.5s;
-  margin: 10px 0 0 0;
+  margin: 0;            /* 去掉默认间距 */
+}
+
+/* 邮箱文字样式（和 COMING SOON 一致） */
+p {
+  font-size: 1em;       /* 与 COMING SOON 一致 */
+  font-weight: 300;     /* 与 COMING SOON 一致 */
+  color: #888888;       /* 与 COMING SOON 一致 */
+  margin: 5px 0 0 0;    /* 紧贴在 COMING SOON 下方 */
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1s;  /* 延迟出现 */
+}
+
+/* 邮箱链接样式 */
+a {
+  text-decoration: none; /* 去掉下划线 */
+  color: inherit;        /* 继承父元素颜色 */
 }
 </style>
 </head>
 <body>
-<div class="logo-container">
-  <a href="mailto:info@wyax.jp">
-    <img src="logo6.jpg" alt="Logo">
-    <span class="email-tooltip">info@wyax.jp</span>
-  </a>
-</div>
+<img src="logo6.jpg" alt="Logo">
 <h1>COMING SOON</h1>
+<p><a href="mailto:info@wyax.jp">info@wyax.jp</a></p>
 </body>
 </html>
