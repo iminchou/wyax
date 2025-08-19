@@ -5,8 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Coming Soon</title>
 <style>
+/* 页面居中 */
 body {
   margin: 0;
+  padding: 0;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,19 +18,46 @@ body {
   font-family: Arial, sans-serif;
   text-align: center;
 }
+
+/* 淡入动画 */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* logo 图片样式 */
 img {
+  width: 40%;
   max-width: 200px;
   height: auto;
   margin-bottom: 20px;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
 }
+
+/* 文字样式 */
 h1 {
   font-size: 2em;
-  color: #333;
+  color: #333333;
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 0.5s; /* 文字延迟出现 */
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  img { width: 60%; }
+  h1 { font-size: 1.5em; }
+}
+
+@media (max-width: 480px) {
+  img { width: 80%; }
+  h1 { font-size: 1.2em; }
 }
 </style>
 </head>
 <body>
 <img src="logo6.jpg" alt="Logo">
-<h1>COMING SOON</h1>
+<h1>coming soon</h1>
 </body>
 </html>
