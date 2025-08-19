@@ -36,18 +36,36 @@ img {
 
 /* COMING SOON 文字样式 */
 h1 {
-  font-size: 1em;       /* 字体变小 */
-  font-weight: 300;     /* 字体变细 */
+  font-size: 1em;       /* 字体小 */
+  font-weight: 300;     /* 字体细 */
   color: #888888;       /* 灰色 */
   opacity: 0;
   animation: fadeIn 1s ease forwards;
   animation-delay: 0.5s;
   margin: 0;            /* 去掉默认间距 */
 }
+
+/* 邮箱文字样式（和 COMING SOON 一致） */
+p {
+  font-size: 1em;       /* 与 COMING SOON 一致 */
+  font-weight: 300;     /* 与 COMING SOON 一致 */
+  color: #888888;       /* 与 COMING SOON 一致 */
+  margin: 5px 0 0 0;    /* 紧贴在 COMING SOON 下方 */
+  opacity: 0;
+  animation: fadeIn 1s ease forwards;
+  animation-delay: 1s;  /* 延迟出现 */
+}
+
+/* 邮箱链接样式 */
+a {
+  text-decoration: none; /* 去掉下划线 */
+  color: inherit;        /* 继承父元素颜色 */
+}
 </style>
 </head>
 <body>
 <img src="logo6.jpg" alt="Logo">
 <h1>COMING SOON</h1>
+<p><a href="mailto:info@wyax.jp">info@wyax.jp</a></p>
 </body>
 </html>
