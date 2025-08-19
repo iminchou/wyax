@@ -25,39 +25,25 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* logo 图片样式 */
+/* logo 图片样式（保留原始大小） */
 img {
-  width: 40%;
-  max-width: 200px;
-  height: auto;
   margin-bottom: 20px;
   opacity: 0;
   animation: fadeIn 1s ease forwards;
 }
 
-/* 文字样式 */
+/* 文字样式：灰色 + 字体小 */
 h1 {
-  font-size: 2em;
-  color: #333333;
+  font-size: 1.2em; /* 字体变小 */
+  color: #888888;   /* 灰色 */
   opacity: 0;
   animation: fadeIn 1s ease forwards;
-  animation-delay: 0.5s; /* 文字延迟出现 */
-}
-
-/* 响应式适配 */
-@media (max-width: 768px) {
-  img { width: 60%; }
-  h1 { font-size: 1.5em; }
-}
-
-@media (max-width: 480px) {
-  img { width: 80%; }
-  h1 { font-size: 1.2em; }
+  animation-delay: 0.5s;
 }
 </style>
 </head>
 <body>
-<img src="logo6.jpg" alt="Logo">
-<h1>coming soon</h1>
+<img src="logo.png" alt="Logo">
+<h1>COMING SOON</h1>
 </body>
 </html>
