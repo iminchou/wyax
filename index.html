@@ -6,14 +6,11 @@
     <title>WYAX Co., Ltd. | NAIORIO Premium Silicone Ware</title>
     <style>
         :root {
-            /* 旷野灰绿高级色调 */
-            --primary-sage: #5a6b5c;      /* 核心灰绿 */
-            --light-sage: #f4f6f4;        /* 超浅灰绿背景 */
-            --dark-slate: #2c332e;        /* 深石板绿 */
+            --primary-sage: #5a6b5c;      
+            --light-sage: #f4f6f4;        
+            --dark-slate: #2c332e;        
             --text-main: #333333;
             --bg-white: #ffffff;
-            
-            /* 全局指定 Helvetica 字体族 */
             --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
@@ -28,13 +25,11 @@
             color: var(--text-main);
             line-height: 1.8;
             background-color: var(--bg-white);
-            /* 全局坚决不要斜体，坚决不要粗体 */
             font-style: normal !important;
             font-weight: 400 !important;
             overflow-x: hidden;
         }
 
-        /* 强制所有排版元素均不倾斜、不加粗 */
         h1, h2, h3, h4, p, a, span, li, button, div, th, td, strong {
             font-style: normal !important;
             font-weight: 400 !important;
@@ -46,7 +41,6 @@
             margin: 0 auto;
         }
 
-        /* Header & Navigation */
         header {
             background-color: var(--bg-white);
             position: sticky;
@@ -61,18 +55,20 @@
             padding: 25px 0;
         }
 
+        /* 公司名并排放置 */
         .logo-box h1 {
-            font-size: 24px;
-            letter-spacing: 3px;
+            font-size: 22px;
+            letter-spacing: 2px;
             color: var(--dark-slate);
+            display: inline-block;
         }
 
-        .logo-box span {
-            font-size: 11px;
+        .logo-box h1 span {
+            font-size: 14px;
             color: var(--primary-sage);
-            display: block;
-            letter-spacing: 1.5px;
-            margin-top: 2px;
+            display: inline;
+            margin-left: 8px;
+            letter-spacing: 1px;
         }
 
         .nav-right {
@@ -100,7 +96,6 @@
             color: var(--primary-sage);
         }
 
-        /* Language Switcher */
         .lang-switch {
             display: flex;
             gap: 4px;
@@ -123,7 +118,6 @@
             color: var(--bg-white);
         }
 
-        /* 单页隐藏展现机制 */
         .page-section {
             display: none; 
             opacity: 0;
@@ -139,7 +133,6 @@
             transform: translateY(0);
         }
 
-        /* 轻量艺术标题 */
         .section-header {
             margin-bottom: 50px;
         }
@@ -151,10 +144,9 @@
             color: var(--dark-slate);
         }
 
-        /* 纯净图像布局容器（去除了线条外框） */
         .visual-image-box {
             width: 100%;
-            height: 340px;
+            height: 380px;
             overflow: hidden;
             background-color: var(--light-sage);
         }
@@ -166,12 +158,10 @@
             opacity: 0.95;
         }
 
-        /* ==========================================
-           1. HOME SECTION - 务实化文案与纯净图片
-           ========================================== */
+        /* HOME SECTION */
         .home-layout {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
@@ -187,6 +177,7 @@
             font-size: 15px;
             color: var(--text-main);
             margin-bottom: 20px;
+            text-align: justify;
         }
 
         .home-sub-features {
@@ -195,21 +186,26 @@
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             padding-top: 40px;
+            border-top: 1px solid #eeeeee;
         }
 
         .feature-text-item h4 {
             font-size: 16px;
             color: var(--primary-sage);
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: 1px;
         }
 
-        /* ==========================================
-           2. CONCEPT SECTION
-           ========================================== */
+        .feature-text-item p {
+            font-size: 14px;
+            color: #555555;
+            text-align: justify;
+        }
+
+        /* CONCEPT SECTION */
         .concept-layout {
             display: grid;
-            grid-template-columns: 1.1fr 0.9fr;
+            grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
         }
@@ -220,25 +216,7 @@
             text-align: justify;
         }
 
-        .concept-architecture {
-            margin-top: 40px;
-            padding-top: 30px;
-        }
-
-        .arch-row {
-            margin-bottom: 15px;
-        }
-
-        .arch-row span {
-            font-size: 11px;
-            color: var(--primary-sage);
-            letter-spacing: 2px;
-            display: block;
-        }
-
-        /* ==========================================
-           3. BRAND SECTION
-           ========================================== */
+        /* BRAND SECTION */
         .brand-layout {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
@@ -247,23 +225,21 @@
         }
 
         .brand-story-box {
-            padding: 20px 0;
+            padding: 10px 0;
         }
 
         .brand-story-box h4 {
             font-size: 18px;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: 2px;
             color: var(--dark-slate);
         }
 
-        /* ==========================================
-           4. PRODUCTS SECTION - 务实的6组核心产品系列
-           ========================================== */
+        /* PRODUCTS SECTION - 两行两列方正排版（2x2 Grid） */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 45px;
+            grid-template-columns: repeat(2, 1fr); /* 桌面端严格两列 */
+            gap: 50px;
         }
 
         .product-card {
@@ -273,7 +249,7 @@
 
         .product-card-image {
             width: 100%;
-            height: 280px;
+            height: 320px;
             background-color: var(--light-sage);
         }
 
@@ -289,7 +265,7 @@
 
         .product-title {
             font-size: 15px;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             letter-spacing: 1px;
             color: var(--dark-slate);
         }
@@ -298,12 +274,10 @@
             font-size: 13px;
             color: #555;
             margin-bottom: 15px;
-            min-height: 40px;
+            text-align: justify;
         }
 
-        /* ==========================================
-           5. ABOUT SECTION - 纯留白务实公司信息
-           ========================================== */
+        /* ABOUT SECTION */
         .about-layout {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -332,7 +306,6 @@
             letter-spacing: 1px;
         }
 
-        /* 链接样式锁定：无下划线，维持Helvetica正体细体 */
         .web-link {
             color: var(--text-main);
             text-decoration: none;
@@ -344,7 +317,7 @@
         }
 
         .about-statement {
-            padding: 20px 0;
+            padding: 10px 0;
         }
 
         .about-statement h4 {
@@ -352,6 +325,13 @@
             color: var(--dark-slate);
             margin-bottom: 15px;
             letter-spacing: 1px;
+        }
+
+        .about-statement p {
+            font-size: 14px;
+            color: #555555;
+            text-align: justify;
+            margin-bottom: 15px;
         }
 
         /* Footer Section */
@@ -368,17 +348,20 @@
             align-items: center;
         }
 
+        /* 页脚公司名并排放置 */
         .footer-logo h4 {
             color: #fff;
             font-size: 18px;
             letter-spacing: 2px;
+            display: inline-block;
         }
 
-        .footer-logo span {
+        .footer-logo h4 span {
             color: var(--primary-sage);
-            font-size: 10px;
-            display: block;
-            letter-spacing: 1px;
+            font-size: 13px;
+            display: inline;
+            margin-left: 6px;
+            letter-spacing: 0.5px;
         }
 
         .copyright {
@@ -387,7 +370,7 @@
             font-size: 11px;
         }
 
-        /* 双语一键控制规则 */
+        /* 纯双语切换 */
         [data-lang] {
             display: none;
         }
@@ -399,8 +382,9 @@
         @media (max-width: 768px) {
             .header-container, .nav-right, .home-layout, .concept-layout, .brand-layout, .about-layout, .footer-flex { flex-direction: column; grid-template-columns: 1fr; gap: 30px; }
             nav ul { gap: 10px; }
+            .products-grid { grid-template-columns: 1fr; } /* 移动端降级为单列 */
             .home-sub-features { grid-template-columns: 1fr; }
-            .visual-image-box { height: 260px; }
+            .visual-image-box, .product-card-image { height: 260px; }
         }
     </style>
 </head>
@@ -410,8 +394,7 @@
     <header>
         <div class="container header-container">
             <div class="logo-box">
-                <h1>WYAX</h1>
-                <span>Co., Ltd.</span>
+                <h1>WYAX<span>Co., Ltd.</span></h1>
             </div>
             <div class="nav-right">
                 <nav>
@@ -431,43 +414,42 @@
         </div>
     </header>
 
-    <!-- 1. HOME SECTION (务实生产线定义，引入 home01.jpg) -->
+    <!-- 1. HOME SECTION -->
     <section id="home" class="container page-section active-page">
         <div class="home-layout">
             <div class="hero-block">
-                <h3 data-lang="ja">日用品および厨房用品の専門製造</h3>
-                <h3 data-lang="en">Specialized Manufacturing of Household & Kitchen Wares</h3>
+                <h3 data-lang="ja">家庭用品および厨房用品の専門製造プラットフォーム</h3>
+                <h3 data-lang="en">Specialized Manufacturing Platform for Household & Kitchen Wares</h3>
                 
-                <p data-lang="ja">本公司专注于日常用品及厨房用品生产。我们始终坚持以最严谨的制造工艺，提供高品质的产品来提升您的生活品质与便利度。</p>
-                <p data-lang="en">Our company focuses closely on the production of daily necessities and kitchenware. We are dedicated to providing high-quality products to elevate your lifestyle and convenience.</p>
+                <p data-lang="ja">WYAX Co., Ltd. は、現代の生活環境に最適化された日常用品および厨房用品の生産と開発に特化しています。私たちは長年にわたり培った高度な制造技術と厳格な品質管理体制を基盤とし、使う人の視点に立った高品質な製品を世界市場へ供給しています。素材の選定から最終的な仕上げに至るまで一切の妥協を許さず、お客様の日々の生活の質を確実に向上させることを企業目的としています。</p>
+                <p data-lang="en">WYAX Co., Ltd. focuses strictly on the production, engineering, and global development of contemporary household merchandise and advanced kitchenware assets. Utilizing years of manufacturing expertise and rigorous quality control protocols, we deliver premium-grade solutions built directly from the consumer's perspective. From initial raw material selection to final refining phases, we refuse to compromise, steering our corporate purpose toward enhancing global living standards and domestic utility.</p>
                 
-                <p data-lang="ja">私たちは、日々の生活に最も身近な道具たちに確かな品質と使いやすさを与え、モダンな住空間をよりシンプルに、快適に整えるお手伝いをいたします。</p>
-                <p data-lang="en">We impart reliable quality and functionality to the items closest to your daily routine, helping streamline and enhance modern home environments.</p>
+                <p data-lang="ja">住空間に自然に溶け込み、日常の家事や調理作業をよりシンプルで効率的なものへと変えていく。私たちが製造する製品の一つひとつには、確かな耐久性と徹底された安全基準が注ぎ込まれています。変化し続けるライフスタイルに寄り添い、常に一歩進んだ実用的な価値を提供し続けることが、私たちの持続的な使命です。</p>
+                <p data-lang="en">Our products integrate flawlessly into any living environment, transforming routine tasks and cooking structures into streamlined, highly efficient movements. Every item leaving our line is embedded with structural durability and fully certified safety metrics. By aligning with evolving international trends, our enduring mission remains to inject practical value and continuous innovation into the modern household ecosystem.</p>
             </div>
             
-            <!-- 纯净主页大图 -->
             <div class="visual-image-box">
-                <img src="home01.jpg" alt="NAIORIO Premium Home Ware">
+                <img src="home01.jpg" alt="WYAX Premium Manufacturing Core">
             </div>
         </div>
 
         <div class="home-sub-features">
             <div class="feature-text-item">
-                <h4 data-lang="ja">高水準な生産管理</h4>
-                <h4 data-lang="en">High-Standard Production</h4>
-                <p data-lang="ja">原材料の選定から製造の最終工程に至るまで、徹底した管理体制で確かな製品をお届けします。</p>
-                <p data-lang="en">From material sourcing to final finishing, we enforce a strict management framework to ensure product reliability.</p>
+                <h4 data-lang="ja">高度な生産エンジニアリング</h4>
+                <h4 data-lang="en">Advanced Production Engineering</h4>
+                <p data-lang="ja">高度にシステム化された製造ラインにより、原材料の特性を最大限に活かした均一で信頼性の高い製品生産を行います。グローバルな安全基準を満たすための自社内品質試験をクリアした製品のみを出荷し、安定した供給力と卓越した製品精度を常に維持しています。</p>
+                <p data-lang="en">Our structured manufacturing architecture ensures uniform, highly reliable output that optimizes raw material specifications. We exclusively clear items that pass internal testing protocols aligned with global regulations, securing sustainable distribution capacity, precision finishes, and trusted operational long-term utility.</p>
             </div>
             <div class="feature-text-item">
-                <h4 data-lang="ja">生活に密着した実用性</h4>
-                <h4 data-lang="en">Everyday Practicality</h4>
-                <p data-lang="ja">日常の調理や収納における本当の使いやすさを重視し、実用的な製品開発を行っています。</p>
-                <p data-lang="en">We center our product development on absolute convenience and real-world utility for cooking and home organization.</p>
+                <h4 data-lang="ja">実生活に根ざした製品検証</h4>
+                <h4 data-lang="en">Empirical Product Verification</h4>
+                <p data-lang="ja">実際のキッチンや収納現場における細かな動線を分析し、形状や寸法の微調整を重ねることで、実際の使用時において最もストレスのない構造を設計しています。一時的な流行にとらわれず、実用性と機能性を最優先した誠実なものづくりを徹底しています。</p>
+                <p data-lang="en">By analyzing real-world workflows in modern kitchens and storage configurations, we implement iterative layout updates regarding geometry and dimensions to provide fluid, stress-free user interactions. We bypass temporary industry trends, remaining focused on authentic practicality and enduring structural honesty.</p>
             </div>
         </div>
     </section>
 
-    <!-- 2. CONCEPT SECTION (引入 concept01.jpg) -->
+    <!-- 2. CONCEPT SECTION (移除了01 02等标记与虚框) -->
     <section id="concept" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Brand Concept</h2>
@@ -475,32 +457,23 @@
         </div>
         <div class="concept-layout">
             <div class="content-narrow">
-                <p class="concept-paragraph" data-lang="ja">私たちが目指すのは、単に着飾るための道具ではなく、暮らしに自然に溶け込む実直な製品づくりです。日常用品や厨房用品の製造を通じて、使うたびに安心感を得られる品質と、生活の動線に負担をかけない美しさを追求しています。</p>
-                <p class="concept-paragraph" data-lang="en">Our core goal is to manufacture honest, practical products that blend naturally into your daily routine. Through specialized kitchenware and household item production, we deliver reliable safety and intuitive design that flows seamlessly with your home structure.</p>
+                <p class="concept-paragraph" data-lang="ja">私たちが追求するのは、華美な装飾で飾られた道具ではなく、日々の暮らしのなかに完全に同化する実直な器具の製造です。日常用品や厨房用品は、生活の基盤を支える重要なインフラであるという認識のもと、使うたびに絶対的な安心感をもたらす確かな品質と、空間を阻害しない洗練された実用美の融合を常に目指しています。</p>
+                <p class="concept-paragraph" data-lang="en">Our focus rejects decorative elements, choosing instead to engineer honest, minimalist utilities that align completely with your physical household flow. Viewing kitchenware and daily tools as essential infrastructure for domestic life, we pursue a perfect balance where absolute material safety merges with a clean, unobtrusive aesthetic that honors the space it occupies.</p>
                 
-                <p class="concept-paragraph" data-lang="ja">製品一つひとつの耐久性と安全性を高めることで、お客様が長く愛用でき、結果として暮らし全体がよりシンプルで高品質なものへとステップアップしていく。それが私たちのものづくりの根幹にあります。</p>
-                <p class="concept-paragraph" data-lang="en">By maximizing the durability and chemical safety of each piece, we ensure long-term satisfaction. We believe that when your surrounding utilities become dependable, your entire daily rhythm becomes smoother and more refined.</p>
+                <p class="concept-paragraph" data-lang="ja">製品の寿命を極限まで延ばし、安全性を徹底的に高めること。それによって無駄な消費を抑え、結果としてお客様の住空間と時間の過ごし方を、よりシンプルで贅沢なものへと変革させていく。この明確な思想が、設計から梱包に至るまでのすべてのプロセスを貫く共通の設計指針となっています。</p>
+                <p class="concept-paragraph" data-lang="en">By maximizing product operational lifespans and refining elemental safety configurations, we assist in lowering wasteful turnover. This direct methodology empowers households to upgrade their environments into cleaner, distraction-free zones. This structural philosophy serves as our unifying blueprint from early layout processing to final transport casing.</p>
                 
-                <div class="concept-architecture">
-                    <div class="arch-row">
-                        <span>01 / HIGH QUALITY</span>
-                        <p data-lang="ja">生活を豊かにする確かな品質</p><p data-lang="en">Reliable quality to elevate life</p>
-                    </div>
-                    <div class="arch-row">
-                        <span>02 / PRACTICALITY</span>
-                        <p data-lang="ja">日常に寄り添う高い実用性</p><p data-lang="en">Exceptional everyday utility</p>
-                    </div>
-                </div>
+                <p class="concept-paragraph" data-lang="ja">高度な安全性、耐久性、そして機能的合理性を追求したプロダクトは、日常の家事負担を大幅に軽減し、より豊かなライフスタイルの基盤を作ります。</p>
+                <p class="concept-paragraph" data-lang="en">Products integrated with supreme safety, rigorous endurance, and optimal geometric rationality reduce everyday domestic friction, building a concrete baseline for premium lifestyles.</p>
             </div>
 
-            <!-- 纯净理念大图 -->
             <div class="visual-image-box">
-                <img src="concept01.jpg" alt="NAIORIO Production Philosophy">
+                <img src="concept01.jpg" alt="WYAX Design and Quality Philosophy">
             </div>
         </div>
     </section>
 
-    <!-- 3. BRAND SECTION (引入 naiorio01.jpg) -->
+    <!-- 3. BRAND SECTION -->
     <section id="brand" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Brand Story</h2>
@@ -508,22 +481,21 @@
         </div>
         <div class="brand-layout">
             
-            <!-- 纯净品牌大图 -->
             <div class="visual-image-box">
-                <img src="naiorio01.jpg" alt="NAIORIO Material Integrity">
+                <img src="naiorio01.jpg" alt="NAIORIO Material Architecture">
             </div>
 
             <div class="brand-story-box">
                 <h4>- NAIORIO -</h4>
-                <p class="concept-paragraph" data-lang="ja"><strong>NAIORIO（ナイオリオ）</strong>は、日常用品および厨房用品の生産において確固たる信頼を築くために生まれた、WYAX Co., Ltd. のメインブランドです。</p>
-                <p class="concept-paragraph" data-lang="en"><strong>NAIORIO</strong> is the primary house brand developed by WYAX Co., Ltd., built specifically to anchor absolute reliability in kitchenware and home products.</p>
-                <p class="concept-paragraph" data-lang="ja">厳選されたシリコン素材を軸に、優れた耐熱性や実用的な収納力を備えた製品ラインを展開。食品接触器具としての高い安全性はもちろん、非食品接触類に至るまで、生活環境全体の質をクリアに底上げする製品を真摯に開発しています。</p>
-                <p class="concept-paragraph" data-lang="en">Centered around curated premium silicone, our product selection offers superior heat defense and highly effective storage capacity. From certified food-grade accessories to general household items, we innovate with sincere focus to upgrade your complete domestic environment.</p>
+                <p class="concept-paragraph" data-lang="ja"><strong>NAIORIO（ナイオリオ）</strong>は、確かな製造技術を背景に、日常の家庭環境へ圧倒的な信頼性と上質な一体感をもたらすために誕生した、WYAX Co., Ltd. の基幹オリジナルブランドです。現代の家事動線におけるあらゆる課題を解決するため、実用的な素材工学と時代に左右されない普遍的な造形美を組み合わせた製品を提案しています。</p>
+                <p class="concept-paragraph" data-lang="en"><strong>NAIORIO</strong> is the primary proprietary brand cultivated by WYAX Co., Ltd., engineered to introduce absolute operational trust and seamless integration into modern home settings. To resolve common operational pain points in daily domestic workflows, we deploy a sophisticated marriage of practical material engineering and timeless, geometric form.</p>
+                <p class="concept-paragraph" data-lang="ja">厳選された高密度シリコン素材をコア技術として採用し、極めて高い耐熱性、優れた防滑性、そして過酷な使用環境に耐えうる耐久性を実現しました。直接食品に触れる調理器具などの高度な安全性が求められる製品群から、居住空間を美しく整える非食品接触類の多機能収納ツールにいたるまで、一貫した製造哲学のもとで生産されています。暮らしをよりクリーンに、より機能的に変革する次世代の基準がここにあります。</p>
+                <p class="concept-paragraph" data-lang="en">Our collection centers heavily around high-density, certified silicone compounds, yielding maximum thermal resistance, optimized anti-slip security, and resilience under constant hard labor. Spanning from food-contact essentials requiring rigorous compliance checks to versatile storage items and non-food contact wares designed to organize spaces, every item reflects a singular manufacturing standard. This is the new standard constructed to elevate your complete living standard.</p>
             </div>
         </div>
     </section>
 
-    <!-- 4. PRODUCTS SECTION - 对齐精确的6组务实产品系列 -->
+    <!-- 4. PRODUCTS SECTION (重构为两行两列方正架构) -->
     <section id="products" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Product Collection</h2>
@@ -532,68 +504,44 @@
         <div class="products-grid">
             <!-- 1. 杯垫 -->
             <div class="product-card">
-                <div class="product-card-image"><img src="02BL1.jpg" alt="Coasters"></div>
+                <div class="product-card-image"><img src="coaster01.jpg" alt="Coasters"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">杯垫 / コースター</div>
-                    <div class="product-title" data-lang="en">COASTERS</div>
-                    <div class="product-desc" data-lang="ja">防滑、防水且耐热，为桌面提供完美保护。</div>
-                    <div class="product-desc" data-lang="en">Non-slip, waterproof, and heat-resistant protection for table surfaces.</div>
+                    <div class="product-title">COASTERS</div>
+                    <div class="product-desc" data-lang="ja">高耐久なプレミアムシリコンを採用。優れた防水性と耐熱性能により、大切な家具の表面を水分や高熱から美しく保護します。</div>
+                    <div class="product-desc" data-lang="en">Formulated with premium-grade high-end silicone. Complete waterproof and high thermal shield qualities perfectly shield sensitive tabletops from hot vessels and wet rings.</div>
                 </div>
             </div>
-            <!-- 2. 隔热垫 -->
+            <!-- 2. 隔热锅垫 -->
             <div class="product-card">
-                <div class="product-image"><img src="baking_mat.jpg" alt="Heat Resistant Mats"></div>
+                <div class="product-card-image"><img src="pan01.jpg" alt="Heat Resistant Pot Mats"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">隔热垫 / 耐熱マット</div>
-                    <div class="product-title" data-lang="en">HEAT RESISTANT MATS</div>
-                    <div class="product-desc" data-lang="ja">高效隔绝高温，保护厨房台面及餐桌免受烫伤。</div>
-                    <div class="product-desc" data-lang="en">Efficiently insulates high temperatures to safeguard kitchen countertops and dining tables.</div>
+                    <div class="product-title">HEAT RESISTANT POT MATS</div>
+                    <div class="product-desc" data-lang="ja">極めて高い熱伝導阻害性能を持つ厚手設計。熱い鍋やフライパンを安定して置くことができ、キッチンカウンターを傷つけません。</div>
+                    <div class="product-desc" data-lang="en">Heavy-duty thick structure tuned for critical thermal isolation. Securely supports boiling pots and pans while insulating workspace finishes against high heat breakdown.</div>
                 </div>
             </div>
-            <!-- 3. 硅胶置物架 -->
+            <!-- 3. 烤箱隔热手套 -->
             <div class="product-card">
-                <div class="product-image"><img src="drying_mat.jpg" alt="Silicone Organizers"></div>
+                <div class="product-card-image"><img src="glove01.jpg" alt="Oven Gloves"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">硅胶置物架 / シリコンラック</div>
-                    <div class="product-title" data-lang="en">SILICONE ORGANIZERS</div>
-                    <div class="product-desc" data-lang="ja">灵活沥水与稳固收纳，让水槽和台面更加干净整洁。</div>
-                    <div class="product-desc" data-lang="en">Flexible drainage and stable placement to keep sinks and counters clean and orderly.</div>
+                    <div class="product-title">OVEN MITTS</div>
+                    <div class="product-desc" data-lang="ja">熱を完全に遮断する多層防護構造。滑りにくい特殊エンボステクスチャが抜群のグリップ力を生み、加熱調理時の安全な作業を支援します。</div>
+                    <div class="product-desc" data-lang="en">Multi-layered defensive layout certified to clear hot zone manipulation safely. Fitted with dynamic patterns to supply maximum anti-slip grip under rigorous baking situations.</div>
                 </div>
             </div>
-            <!-- 4. 硅胶半截烤箱手套 -->
+            <!-- 4. 硅胶碗盖 -->
             <div class="product-card">
-                <div class="product-image"><img src="oven_glove.jpg" alt="Silicone Mini Oven Mitts"></div>
+                <div class="product-card-image"><img src="lid01.jpg" alt="Silicone Bowl Lids"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">硅胶半截烤箱手套 / シリコンミニミトン</div>
-                    <div class="product-title" data-lang="en">SILICONE MINI OVEN MITTS</div>
-                    <div class="product-desc" data-lang="ja">轻便的半截式设计，抓握稳固，防烫且易于穿戴。</div>
-                    <div class="product-desc" data-lang="en">Lightweight mini design providing solid grip, anti-scald protection, and quick slip-on utility.</div>
-                </div>
-            </div>
-            <!-- 5. 硅胶杯套 -->
-            <div class="product-card">
-                <div class="product-image"><img src="stretch_lids.jpg" alt="Silicone Cup Sleeves"></div>
-                <div class="product-info">
-                    <div class="product-title" data-lang="ja">硅胶杯套 / シリコンコップスリーブ</div>
-                    <div class="product-title" data-lang="en">SILICONE CUP SLEEVES</div>
-                    <div class="product-desc" data-lang="ja">优异的隔热与防滑防摔性能，适配多种杯型。</div>
-                    <div class="product-desc" data-lang="en">Provides excellent thermal insulation and anti-slip grip, fitting a wide variety of cups.</div>
-                </div>
-            </div>
-            <!-- 6. 硅胶收纳及其他非食品接触类 -->
-            <div class="product-card">
-                <div class="product-image"><img src="storage_bags.jpg" alt="Silicone Storage & Non-Food Contact Wares"></div>
-                <div class="product-info">
-                    <div class="product-title" data-lang="ja">硅胶收纳及其他非食品接触类</div>
-                    <div class="product-title" data-lang="en">SILICONE STORAGE & NON-FOOD CONTACT WARES</div>
-                    <div class="product-desc" data-lang="ja">多元化的家居收纳与日常洗刷工具，满足全方位居家需求。</div>
-                    <div class="product-desc" data-lang="en">Versatile household storage bins and daily utility tools tailored to meet overall home demands.</div>
+                    <div class="product-title">SILICONE BOWL LIDS</div>
+                    <div class="product-desc" data-lang="ja">優れた伸縮性と吸着力で多様な形状の容器を完全密閉。食材の鮮度を長くクリーンに保つことができ、繰り返し使える環境配慮型設計です。</div>
+                    <div class="product-desc" data-lang="en">High-stretch adaptable flexible caps built to forge solid airtight boundaries over varied bowls. Effectively locks in moisture and freshness, supporting reusable food-management values.</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. ABOUT SECTION (超链接激活) -->
+    <!-- 5. ABOUT SECTION -->
     <section id="about" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Company Info</h2>
@@ -603,34 +551,36 @@
         <div class="about-layout">
             <table class="company-info-table">
                 <tr>
-                    <th data-lang="ja">会社名</th><th data-lang="en">Company</th>
+                    <th data-lang="ja">会社名</th><th data-lang="en">Company Name</th>
                     <td>WYAX Co., Ltd.</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">所在地</th><th data-lang="en">Address</th>
+                    <th data-lang="ja">本社所在地</th><th data-lang="en">Registered Address</th>
                     <td data-lang="ja">〒169-0075 東京都新宿区高田馬場１−３１−８</td>
                     <td data-lang="en">1-31-8, Takadanobaba, Shinjuku, Tokyo, 169-0075, Japan</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">電話番号</th><th data-lang="en">Tel</th>
+                    <th data-lang="ja">電話番号</th><th data-lang="en">Telephone</th>
                     <td data-lang="ja">070-3519-6183</td>
                     <td data-lang="en">+81 (0)70-3519-6183</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">Eメール</th><th data-lang="en">Email</th>
+                    <th data-lang="ja">Eメール</th><th data-lang="en">Email Address</th>
                     <td><a href="mailto:info@wyax.jp" class="web-link">info@wyax.jp</a></td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">公式サイト</th><th data-lang="en">Website</th>
+                    <th data-lang="ja">公式サイト</th><th data-lang="en">Official Website</th>
                     <td><a href="https://www.wyax.jp" target="_blank" class="web-link">www.wyax.jp</a></td>
                 </tr>
             </table>
 
             <div class="about-statement">
-                <h4 data-lang="ja">私たちのビジョン</h4>
-                <h4 data-lang="en">Corporate Vision</h4>
-                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の国際貿易およびプライベートブランドの開発を通じて、世界中のお客様に洗練された日々の暮らしを提案します。</p>
-                <p data-lang="en">Through international commerce and bespoke brand incubation, WYAX Co., Ltd. is committed to enriching global households with elevated standards.</p>
+                <h4 data-lang="ja">企業ビジョンとグローバル展開</h4>
+                <h4 data-lang="en">Corporate Vision & International Scope</h4>
+                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の製造、国際貿易、およびプライベートブランドの開発をコアビジネスとして展開しています。私たちは、各地域の文化や生活様式に深く根ざした実用的な価値を見極め、それを確かな製造技術によって具現化し、世界各地へ安定的に届けるサプライチェーンを確立しています。</p>
+                <p data-lang="en">WYAX Co., Ltd. operates at the intersection of specialized home-goods fabrication, strategic international trade, and proprietary brand cultivation. We identify pragmatic values rooted within regional lifestyles, actualize them via advanced manufacturing assets, and maintain a seamless global supply chain network spanning cross-border custom pathways.</p>
+                <p data-lang="ja">私たちは単なる商品の流通にとどまらず、素材のイノベーションや環境配慮型設計を通じて、持続可能で高品質なライフスタイルをトータルにサポートできるグローバル企業への成長を目指しています。世界中のパートナー企業との強固な信頼関係のもと、確かな満足を約束する製品開発に邁進してまいります。</p>
+                <p data-lang="en">Beyond elementary logistics, our structural goal targets long-term ecological compliance and material innovation. We continuously solidify our framework alongside premier global affiliates, allocating our research toward progressive, deeply satisfying consumer products that shape tomorrow's domestic paradigm.</p>
             </div>
         </div>
     </section>
@@ -639,8 +589,7 @@
     <footer>
         <div class="container footer-flex">
             <div class="footer-logo">
-                <h4>WYAX</h4>
-                <span>Co., Ltd.</span>
+                <h4>WYAX<span>Co., Ltd.</span></h4>
             </div>
             <div class="copyright">
                 &copy; 2026 WYAX Co., Ltd. All Rights Reserved.
@@ -648,7 +597,7 @@
         </div>
     </footer>
 
-    <!-- 交互脚本 -->
+    <!-- Script 交互控制 -->
     <script>
         function showSection(sectionId, element) {
             const sections = document.querySelectorAll('.page-section');
