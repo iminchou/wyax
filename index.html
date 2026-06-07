@@ -155,12 +155,33 @@
             color: var(--dark-slate);
         }
 
+        /* 统一图像容器和线条图形的排版结构 */
+        .visual-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 340px;
+            border: 1px solid var(--line-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-color: var(--light-sage);
+        }
+
+        .visual-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+            z-index: 1;
+        }
+
         /* ==========================================
-           1. HOME SECTION - 产品空间架构线框图
+           1. HOME SECTION - 结合 home01.jpg 与空间刻度线
            ========================================== */
         .home-layout {
             display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
+            grid-template-columns: 1.1fr 0.9fr;
             gap: 60px;
             align-items: center;
         }
@@ -178,64 +199,29 @@
             margin-bottom: 20px;
         }
 
-        /* 图形线条：产品陈列空间架构效果 */
-        .home-graphic-lines {
-            position: relative;
-            width: 100%;
-            height: 320px;
-            border: 1px solid var(--line-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .home-graphic-lines::before {
+        /* HOME 独家：结合实拍图的工艺测绘边框线条 */
+        .home-image-frame::before {
             content: '';
             position: absolute;
-            top: 20px;
-            bottom: 20px;
+            top: 15px;
+            bottom: 15px;
             left: 50%;
             width: 1px;
-            background-color: var(--primary-sage);
+            background-color: rgba(90, 107, 92, 0.3);
+            z-index: 2;
         }
 
-        .home-graphic-lines::after {
-            content: '';
-            position: absolute;
-            left: 20px;
-            right: 20px;
-            top: 45%;
-            height: 1px;
-            background-color: var(--line-gray);
-        }
-
-        .inner-line-box {
-            width: 65%;
-            height: 55%;
-            border: 1px dashed var(--primary-sage);
-            position: relative;
-        }
-
-        /* 右侧模拟几何尺度测绘线 */
-        .inner-line-box::before {
-            content: '';
-            position: absolute;
-            right: -15px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            border-top: 1px solid var(--primary-sage);
-            border-bottom: 1px solid var(--primary-sage);
-        }
-
-        .inner-line-box::after {
+        .home-image-frame::after {
             content: 'SCALE 1:1 / NAIORIO';
             position: absolute;
-            bottom: -35px;
-            right: 0;
-            font-size: 10px;
-            letter-spacing: 3px;
-            color: var(--primary-sage);
+            bottom: 12px;
+            right: 15px;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: #ffffff;
+            z-index: 3;
+            background-color: rgba(44, 51, 46, 0.7);
+            padding: 2px 6px;
         }
 
         .home-sub-features {
@@ -255,13 +241,13 @@
         }
 
         /* ==========================================
-           2. CONCEPT SECTION - 三维形态透视线框图
+           2. CONCEPT SECTION - 结合 concept01.jpg 与形态透视线
            ========================================== */
         .concept-layout {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
             gap: 60px;
-            align-items: start;
+            align-items: center;
         }
 
         .concept-paragraph {
@@ -270,46 +256,22 @@
             text-align: justify;
         }
 
-        /* 图形线条：产品形态透视艺术线条 */
-        .concept-graphic-lines {
-            width: 100%;
-            height: 340px;
-            position: relative;
-            border-left: 1px solid var(--line-gray);
-            border-bottom: 1px solid var(--line-gray);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            padding: 30px;
+        /* CONCEPT 独家：透视错落框与图片叠加效果 */
+        .concept-image-frame {
+            border-left: 2px solid var(--primary-sage);
+            border-bottom: 2px solid var(--line-gray);
+            padding: 15px;
         }
 
-        .perspective-box-1 {
-            width: 100%;
-            height: 60px;
-            border: 1px solid var(--primary-sage);
-            transform: skewX(-20deg);
-            position: relative;
-        }
-
-        .perspective-box-2 {
-            width: 80%;
-            height: 120px;
-            border: 1px dashed var(--line-gray);
-            align-self: flex-end;
-            transform: skewX(15deg);
-            position: relative;
-        }
-
-        .perspective-box-2::after {
-            content: 'FORM FOLLOWS FUNCTION';
+        .concept-image-frame .inner-dashed-line {
             position: absolute;
-            left: -40px;
-            bottom: 10px;
-            font-size: 9px;
-            letter-spacing: 2px;
-            color: var(--slate-gray);
-            transform: rotate(-90deg);
-            transform-origin: left bottom;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            border: 1px dashed rgba(255, 255, 255, 0.4);
+            z-index: 2;
+            pointer-events: none;
         }
 
         .concept-architecture {
@@ -330,35 +292,37 @@
         }
 
         /* ==========================================
-           3. BRAND SECTION - 材质层级平行线条图形
+           3. BRAND SECTION - 结合 naiorio01.jpg 与平行多层工艺线
            ========================================== */
         .brand-layout {
             display: grid;
-            grid-template-columns: 0.8fr 1.2fr;
+            grid-template-columns: 0.9fr 1.1fr;
             gap: 60px;
             align-items: center;
         }
 
-        /* 图形线条：高分子多层平行艺术线条 */
-        .brand-texture-lines {
-            height: 280px;
+        /* BRAND 独家：侧边高分子工艺线条组 */
+        .brand-image-container {
+            position: relative;
+        }
+
+        .brand-side-lines {
+            position: absolute;
+            left: -20px;
+            top: 20px;
+            bottom: 20px;
+            width: 5px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            position: relative;
-            padding: 20px 0;
+            z-index: 2;
         }
 
-        /* 绘制一组平行的长短不对称工艺线条，模拟高端材质纤维与纯净感 */
-        .brand-texture-lines div {
+        .brand-side-lines div {
+            width: 100%;
             height: 1px;
-            background-color: var(--line-gray);
+            background-color: var(--primary-sage);
         }
-        .brand-texture-lines .line-short-1 { width: 40%; background-color: var(--primary-sage); }
-        .brand-texture-lines .line-long-1 { width: 100%; }
-        .brand-texture-lines .line-medium-1 { width: 75%; }
-        .brand-texture-lines .line-short-2 { width: 25%; background-color: var(--primary-sage); }
-        .brand-texture-lines .line-long-2 { width: 90%; }
 
         .brand-story-box {
             border: 1px solid var(--line-gray);
@@ -388,13 +352,13 @@
             overflow: hidden;
         }
 
-        .product-image {
+        .product-card-image {
             width: 100%;
             height: 280px;
             background-color: var(--light-sage);
         }
 
-        .product-image img {
+        .product-card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -433,7 +397,7 @@
         }
 
         /* ==========================================
-           5. ABOUT SECTION - 工艺图纸架构纵线
+           5. ABOUT SECTION - 工业测绘级框架纵线
            ========================================== */
         .about-layout {
             display: grid;
@@ -448,7 +412,7 @@
             position: relative;
         }
 
-        /* 表格左侧精细的图纸工艺定位纵线 */
+        /* 左侧连贯定位轴线 */
         .company-info-table::before {
             content: '';
             position: absolute;
@@ -481,7 +445,6 @@
             position: relative;
         }
 
-        /* 给声明框外围增加不闭合的艺术切线 */
         .about-statement::before {
             content: '';
             position: absolute;
@@ -533,7 +496,7 @@
             font-size: 11px;
         }
 
-        /* 双语控制 */
+        /* 双语一键控制规则 */
         [data-lang] {
             display: none;
         }
@@ -547,7 +510,7 @@
             nav ul { gap: 10px; }
             .home-sub-features { grid-template-columns: 1fr; }
             .company-info-table::before { display: none; }
-            .concept-graphic-lines, .brand-texture-lines { height: 200px; }
+            .visual-image-wrapper { height: 260px; }
         }
     </style>
 </head>
@@ -578,23 +541,23 @@
         </div>
     </header>
 
-    <!-- 1. HOME SECTION (含产品空间架构图形线条) -->
+    <!-- 1. HOME SECTION (完美引入 home01.jpg) -->
     <section id="home" class="container page-section active-page">
         <div class="home-layout">
             <div class="hero-block">
                 <h3 data-lang="ja">上質な暮らしに寄り添う、極限のシリコンウェア。</h3>
                 <h3 data-lang="en">Minimalist Silicone Ware for Elevated Living.</h3>
                 
-                <p data-lang="ja">功能美とミニマリズムの融合。WYAX Co., Ltd. は、洗練されたデザインと優れた実用性を兼ね備えたプレミアムな家庭用品を提供し、世界中のモダンなライフスタイルに新しい价值をもたらします。</p>
+                <p data-lang="ja">功能美とミニマリズムの融合。WYAX Co., Ltd. は、洗練されたデザインと優れた実用性を兼ね備えたプレミアムな家庭用品を提供し、世界中のモダンなライフスタイルに新しい価値をもたらします。</p>
                 <p data-lang="en">The seamless blend of functional beauty and core minimalism. WYAX Co., Ltd. delivers premium household products crafted with sophisticated design and exceptional utility, introducing a refined standard to modern lifestyles worldwide.</p>
                 
-                <p data-lang="ja">日常の何気ない道具に洗練をもたらし、住空間をより美しく、よりシンプルに整えるためのクリエイションを続けています。</p>
+                <p data-lang="ja">日常の何气ない道具に洗練をもたらし、住空間をより美しく、よりシンプルに整えるためのクリエイションを続けています。</p>
                 <p data-lang="en">We continuously innovate to bring sophistication to everyday items, keeping your living space beautiful, organized, and effortlessly simple.</p>
             </div>
             
-            <!-- 独立线框视觉图形（非背景格子） -->
-            <div class="home-graphic-lines">
-                <div class="inner-line-box"></div>
+            <!-- 绑定主页专属大图与线条外框 -->
+            <div class="visual-image-wrapper home-image-frame">
+                <img src="home01.jpg" alt="NAIORIO Premium Home Scene">
             </div>
         </div>
 
@@ -614,7 +577,7 @@
         </div>
     </section>
 
-    <!-- 2. CONCEPT SECTION (含形态透视艺术线框) -->
+    <!-- 2. CONCEPT SECTION (完美引入 concept01.jpg) -->
     <section id="concept" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Brand Concept</h2>
@@ -622,7 +585,7 @@
         </div>
         <div class="concept-layout">
             <div class="content-narrow">
-                <p class="concept-paragraph" data-lang="ja">私たちは、単なる調理器具や日用品を作るのではなく、空间そのものと調和する「静かな美しさ」と、毎日使うたびに感動を覚えるような「緻密な機能性」の調和を追求しています。</p>
+                <p class="concept-paragraph" data-lang="ja">私たちは、単なる調理器具や日用品を作るのではなく、空間そのものと調和する「静かな美しさ」と、毎日使うたびに感動を覚えるような「緻密な機能性」の調和を追求しています。</p>
                 <p class="concept-paragraph" data-lang="en">Rather than producing mere tools, we pursue the perfect harmony between a "quiet beauty" that subtly blends with any space and a "precise functionality" that inspires with every single use.</p>
                 
                 <p class="concept-paragraph" data-lang="ja">無駄な装飾を徹底的にそぎ落とすことで、素材が持つ本来のポテンシャルを引き出し、現代の忙しい日々の中に穏やかなリズムと豊かな時間をもたらすプロダクトを提案します。ミニマリズムとは、何も無いことではなく、大切なものだけが研ぎ澄まされている状態だと私たちは信じています。</p>
@@ -640,28 +603,32 @@
                 </div>
             </div>
 
-            <!-- 独立图形线条：形态透视几何结构 -->
-            <div class="concept-graphic-lines">
-                <div class="perspective-box-1"></div>
-                <div class="perspective-box-2"></div>
+            <!-- 绑定理念专属图与透视切面边界线 -->
+            <div class="concept-image-frame">
+                <div class="visual-image-wrapper">
+                    <div class="inner-dashed-line"></div>
+                    <img src="concept01.jpg" alt="NAIORIO Design Concept Philosophy">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- 3. BRAND SECTION (含高分子材质平行工艺线条) -->
+    <!-- 3. BRAND SECTION (完美引入 naiorio01.jpg) -->
     <section id="brand" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Brand Story</h2>
             <h2 data-lang="en">Brand Story</h2>
         </div>
         <div class="brand-layout">
-            <!-- 独立图形线条：平行美学工艺线条 -->
-            <div class="brand-texture-lines">
-                <div class="line-short-1"></div>
-                <div class="line-long-1"></div>
-                <div class="line-medium-1"></div>
-                <div class="line-short-2"></div>
-                <div class="line-long-2"></div>
+            
+            <!-- 绑定品牌专有大图与多层高分子工艺测线 -->
+            <div class="brand-image-container">
+                <div class="brand-side-lines">
+                    <div></div><div></div><div></div><div></div><div></div>
+                </div>
+                <div class="visual-image-wrapper">
+                    <img src="naiorio01.jpg" alt="NAIORIO Material & Craftsmanship">
+                </div>
             </div>
 
             <div class="brand-story-box">
@@ -682,7 +649,7 @@
         </div>
         <div class="products-grid">
             <div class="product-card">
-                <div class="product-image"><img src="02BL1.jpg" alt="Silicone Coasters"></div>
+                <div class="product-card-image"><img src="02BL1.jpg" alt="Silicone Coasters"></div>
                 <div class="product-info">
                     <div class="product-title">SILICONE COASTER SET</div>
                     <div class="product-desc" data-lang="ja">美しい花のようなディテール。滑りにくく、耐熱・防水性に優れたプレミアムデザイン。</div>
@@ -691,7 +658,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-image"><img src="baking_mat.jpg" alt="Silicone Baking Mat"></div>
+                <div class="product-card-image"><img src="baking_mat.jpg" alt="Silicone Baking Mat"></div>
                 <div class="product-info">
                     <div class="product-title">SILICONE BAKING MAT</div>
                     <div class="product-desc" data-lang="ja">正確な目盛が印字されたプロ仕様マット。洗って繰り返し使えて環境に優しい。</div>
@@ -700,7 +667,7 @@
                 </div>
             </div>
             <div class="product-card">
-                <div class="product-image"><img src="oven_glove.jpg" alt="Silicone Oven Gloves"></div>
+                <div class="product-card-image"><img src="oven_glove.jpg" alt="Silicone Oven Gloves"></div>
                 <div class="product-info">
                     <div class="product-title">SILICONE OVEN GLOVES</div>
                     <div class="product-desc" data-lang="ja">繊細な凸凹テクスチャにより強力なグリップ力を実現。抜群の耐熱プロテクション。</div>
@@ -711,7 +678,7 @@
         </div>
     </section>
 
-    <!-- 5. ABOUT SECTION (含左侧测绘长纵线框架) -->
+    <!-- 5. ABOUT SECTION -->
     <section id="about" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Company Info</h2>
