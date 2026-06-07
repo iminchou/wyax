@@ -14,12 +14,16 @@
             --font-helvetica: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: var(--font-helvetica);
             color: var(--text-main);
-            line-height: 1.6;
+            line-height: 1.8;
             background-color: var(--bg-white);
             font-style: normal !important;
             font-weight: 400 !important;
@@ -31,63 +35,350 @@
             font-weight: 400 !important;
         }
 
-        .container { width: 90%; max-width: 1000px; margin: 0 auto; }
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
-        header { background-color: var(--bg-white); position: sticky; top: 0; z-index: 1000; }
-        .header-container { display: flex; justify-content: space-between; align-items: center; padding: 25px 0; }
-        .logo-box h1 { font-size: 22px; letter-spacing: 2px; color: var(--dark-slate); display: inline-block; }
-        .logo-box h1 span { font-size: 14px; color: var(--primary-sage); display: inline; margin-left: 8px; letter-spacing: 1px; }
+        header {
+            background-color: var(--bg-white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
 
-        nav ul { display: flex; list-style: none; gap: 20px; }
-        nav ul li a { text-decoration: none; color: var(--text-main); font-size: 13px; letter-spacing: 2px; padding: 6px 10px; transition: all 0.3s ease; }
-        nav ul li a:hover, nav ul li a.active-menu { color: var(--primary-sage); }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 25px 0;
+        }
 
-        .lang-switch { display: flex; gap: 4px; padding: 2px; background: var(--light-sage); }
-        .lang-btn { background: none; border: none; padding: 3px 8px; font-size: 11px; cursor: pointer; color: #a0aaa2; }
-        .lang-btn.active { background-color: var(--primary-sage); color: var(--bg-white); }
+        /* 公司名并排放置 */
+        .logo-box h1 {
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: var(--dark-slate);
+            display: inline-block;
+        }
 
-        .page-section { display: none; opacity: 0; transition: opacity 0.4s ease; padding: 60px 0; min-height: 60vh; }
-        .page-section.active-page { display: block; opacity: 1; }
+        .logo-box h1 span {
+            font-size: 14px;
+            color: var(--primary-sage);
+            display: inline;
+            margin-left: 8px;
+            letter-spacing: 1px;
+        }
 
-        .visual-image-box { width: 100%; height: 350px; overflow: hidden; background-color: var(--light-sage); }
-        .visual-image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
 
-        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-        .about-layout { display: flex; flex-direction: column; gap: 40px; }
-        
-        .company-info-table { width: 100%; border-collapse: collapse; }
-        .company-info-table tr { border-bottom: 1px solid #eeeeee; }
-        .company-info-table th, .company-info-table td { padding: 12px 0; font-size: 13px; vertical-align: top; }
-        .company-info-table th { width: 35%; color: var(--primary-sage); letter-spacing: 1px; }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
 
-        .web-link { color: var(--text-main); text-decoration: none; }
-        .web-link:hover { color: var(--primary-sage); }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 13px; 
+            letter-spacing: 2px;
+            padding: 6px 10px;
+            transition: all 0.3s ease;
+        }
 
-        .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-        .product-card-image { width: 100%; height: 280px; background-color: var(--light-sage); }
-        .product-card-image img { width: 100%; height: 100%; object-fit: cover; }
-        .product-info { padding: 15px 0; }
-        .product-title { font-size: 14px; margin-bottom: 8px; letter-spacing: 1px; color: var(--dark-slate); }
-        .product-desc { font-size: 12px; color: #555; }
+        nav ul li a:hover, nav ul li a.active-menu {
+            color: var(--primary-sage);
+        }
 
-        footer { background-color: var(--dark-slate); color: rgba(255, 255, 255, 0.7); padding: 40px 0; font-size: 12px; }
-        .footer-flex { display: flex; justify-content: space-between; align-items: center; }
-        .footer-logo h4 { color: #fff; font-size: 16px; letter-spacing: 1px; display: inline-block; }
-        .footer-logo h4 span { color: var(--primary-sage); font-size: 11px; display: inline; margin-left: 5px; }
+        .lang-switch {
+            display: flex;
+            gap: 4px;
+            padding: 2px;
+            background: var(--light-sage);
+        }
 
-        [data-lang] { display: none; }
+        .lang-btn {
+            background: none;
+            border: none;
+            padding: 3px 8px;
+            font-size: 11px;
+            cursor: pointer;
+            color: #a0aaa2;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary-sage);
+            color: var(--bg-white);
+        }
+
+        .page-section {
+            display: none; 
+            opacity: 0;
+            transform: translateY(5px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            padding: 80px 0;
+            min-height: 70vh;
+        }
+
+        .page-section.active-page {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visual-image-box {
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background-color: var(--light-sage);
+        }
+
+        .visual-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.95;
+        }
+
+        /* HOME SECTION */
+        .home-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-block h3 {
+            font-size: 24px;
+            color: var(--primary-sage);
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .hero-block p {
+            font-size: 15px;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .home-sub-features {
+            margin-top: 60px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            padding-top: 40px;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .feature-text-item h4 {
+            font-size: 16px;
+            color: var(--primary-sage);
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .feature-text-item p {
+            font-size: 14px;
+            color: #555555;
+            text-align: justify;
+        }
+
+        /* CONCEPT SECTION */
+        .concept-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .concept-paragraph {
+            font-size: 15px;
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        /* BRAND SECTION */
+        .brand-layout {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .brand-story-box {
+            padding: 10px 0;
+        }
+
+        .brand-story-box h4 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            color: var(--dark-slate);
+        }
+
+        /* PRODUCTS SECTION - 两行两列方正排版（2x2 Grid） */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 50px;
+        }
+
+        .product-card {
+            background: var(--bg-white);
+            overflow: hidden;
+        }
+
+        .product-card-image {
+            width: 100%;
+            height: 320px;
+            background-color: var(--light-sage);
+        }
+
+        .product-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 20px 0;
+        }
+
+        .product-title {
+            font-size: 15px;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+            color: var(--dark-slate);
+        }
+
+        .product-desc {
+            font-size: 13px;
+            color: #555;
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+
+        /* ABOUT SECTION - 垂直排列，联系信息在下 */
+        .about-layout {
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        .about-statement {
+            padding: 10px 0;
+        }
+
+        .about-statement h4 {
+            font-size: 16px;
+            color: var(--dark-slate);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .about-statement p {
+            font-size: 14px;
+            color: #555555;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        .company-info-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .company-info-table tr {
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .company-info-table th, .company-info-table td {
+            padding: 20px 0;
+            font-size: 14px;
+            vertical-align: top;
+        }
+
+        .company-info-table th {
+            width: 30%;
+            color: var(--primary-sage);
+            letter-spacing: 1px;
+        }
+
+        .web-link {
+            color: var(--text-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .web-link:hover {
+            color: var(--primary-sage);
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: var(--dark-slate);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 45px 0;
+            font-size: 13px;
+        }
+
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* 页脚公司名并排放置 */
+        .footer-logo h4 {
+            color: #fff;
+            font-size: 18px;
+            letter-spacing: 2px;
+            display: inline-block;
+        }
+
+        .footer-logo h4 span {
+            color: var(--primary-sage);
+            font-size: 13px;
+            display: inline;
+            margin-left: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .copyright {
+            color: #6e7970;
+            letter-spacing: 0.5px;
+            font-size: 11px;
+        }
+
+        /* 纯双语切换 */
+        [data-lang] {
+            display: none;
+        }
         body.lang-ja [data-lang="ja"] { display: block; }
         body.lang-ja span[data-lang="ja"] { display: inline; }
         body.lang-en [data-lang="en"] { display: block; }
         body.lang-en span[data-lang="en"] { display: inline; }
 
         @media (max-width: 768px) {
-            .header-container, .grid-2, .products-grid, .footer-flex { flex-direction: column; grid-template-columns: 1fr; gap: 20px; }
+            .header-container, .nav-right, .home-layout, .concept-layout, .brand-layout, .footer-flex { flex-direction: column; gap: 30px; }
+            nav ul { gap: 10px; }
+            .products-grid { grid-template-columns: 1fr; } 
+            .home-sub-features { grid-template-columns: 1fr; }
+            .visual-image-box, .product-card-image { height: 260px; }
         }
     </style>
 </head>
 <body class="lang-ja">
 
+    <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo-box">
@@ -111,83 +402,199 @@
         </div>
     </header>
 
+    <!-- 1. HOME SECTION -->
     <section id="home" class="container page-section active-page">
-        <div class="grid-2">
-            <div>
+        <div class="home-layout">
+            <div class="hero-block">
                 <h3 data-lang="ja">家庭用品および厨房用品の専門製造プラットフォーム</h3>
                 <h3 data-lang="en">Specialized Manufacturing Platform for Household & Kitchen Wares</h3>
-                <p data-lang="ja">WYAX Co., Ltd. は、現代の生活環境に最適化された日常用品および厨房用品の生産と開発に特化しています。長年の製造技術と厳格な品質管理体制を基盤とし、使う人の視点に立った高品質な製品を供給しています。</p>
-                <p data-lang="en">WYAX Co., Ltd. focuses strictly on the production, engineering, and global development of contemporary household merchandise and advanced kitchenware assets. We deliver premium-grade solutions built directly from the consumer's perspective.</p>
+                
+                <p data-lang="ja">WYAX Co., Ltd. は、現代の生活環境に最適化された日常用品および厨房用品の生産と開発に特化しています。私たちは長年にわたり培った高度な製造技術と厳格な品質管理体制を基盤とし、使う人の視点に立った高品質な製品を世界市場へ供給しています。素材の選定から最終的な仕上げに至るまで一切の妥協を許さず、お客様の日々の生活の質を確実に向上させることを企業目的としています。</p>
+                <p data-lang="en">WYAX Co., Ltd. focuses strictly on the production, engineering, and global development of contemporary household merchandise and advanced kitchenware assets. Utilizing years of manufacturing expertise and rigorous quality control protocols, we deliver premium-grade solutions built directly from the consumer's perspective. From initial raw material selection to final refining phases, we refuse to compromise, steering our corporate purpose toward enhancing global living standards and domestic utility.</p>
+                
+                <p data-lang="ja">住空間に自然に溶け込み、日常の家事や調理作業をよりシンプルで効率的なものへと変えていく。私たちが製造する製品の一つひとつには、確かな耐久性と徹底された安全基準が注ぎ込まれています。変化し続けるライフスタイルに寄り添い、常に一歩進んだ実用的な価値を提供し続けることが、私たちの持続的な使命です。</p>
+                <p data-lang="en">Our products integrate flawlessly into any living environment, transforming routine tasks and cooking structures into streamlined, highly efficient movements. Every item leaving our line is embedded with structural durability and fully certified safety metrics. By aligning with evolving international trends, our enduring mission remains to inject practical value and continuous innovation into the modern household ecosystem.</p>
             </div>
-            <div class="visual-image-box"><img src="home01.jpg" alt="Manufacturing"></div>
+            
+            <div class="visual-image-box">
+                <img src="home01.jpg" alt="WYAX Premium Manufacturing Core">
+            </div>
+        </div>
+
+        <div class="home-sub-features">
+            <div class="feature-text-item">
+                <h4 data-lang="ja">高度な生産エンジニアリング</h4>
+                <h4 data-lang="en">Advanced Production Engineering</h4>
+                <p data-lang="ja">高度にシステム化された製造ラインにより、原材料の特性を最大限に活かした均一で信頼性の高い製品生産を行います。グローバルな安全基準を満たすための自社内品質試験をクリアした製品のみを出荷し、安定した供給力と卓越した製品精度を常に維持しています。</p>
+                <p data-lang="en">Our structured manufacturing architecture ensures uniform, highly reliable output that optimizes raw material specifications. We exclusively clear items that pass internal testing protocols aligned with global regulations, securing sustainable distribution capacity, precision finishes, and trusted operational long-term utility.</p>
+            </div>
+            <div class="feature-text-item">
+                <h4 data-lang="ja">実生活に根ざした製品検証</h4>
+                <h4 data-lang="en">Empirical Product Verification</h4>
+                <p data-lang="ja">実際のキッチンや収納現場における細かな動線を分析し、形状や寸法の微調整を重ねることで、実際の使用時において最もストレスのない構造を設計しています。一時的な流行にとらわれず、実用性と機能性を最優先した誠実なものづくりを徹底しています。</p>
+                <p data-lang="en">By analyzing real-world workflows in modern kitchens and storage configurations, we implement iterative layout updates regarding geometry and dimensions to provide fluid, stress-free user interactions. We bypass temporary industry trends, remaining focused on authentic practicality and enduring structural honesty.</p>
+            </div>
         </div>
     </section>
 
+    <!-- 2. CONCEPT SECTION -->
     <section id="concept" class="container page-section">
-        <div class="grid-2">
-            <div>
-                <p data-lang="ja">私たちは、日常の暮らしに自然に溶け込む実直な製品づくりを追求しています。過剰な装飾を排し、製品そのものが持つ機能美と耐久性を最大限に引き出すことで、長く愛用いただける品質を実現しています。</p>
-                <p data-lang="en">Our focus rejects decorative elements, choosing instead to engineer honest, minimalist utilities that align completely with your physical household flow. We pursue a balance where absolute material safety merges with unobtrusive aesthetic.</p>
-                <p data-lang="ja">安全性と実用性を両立させ、日々の家事動線をよりシンプルで快適なものへと変革させることが、私たちの変わらぬコンセプトです。</p>
-                <p data-lang="en">By maximizing product lifespans and refining safety configurations, we assist in lowering wasteful turnover, empowering households to upgrade their environments into distraction-free zones.</p>
+        <div class="concept-layout">
+            <div class="content-narrow">
+                <p class="concept-paragraph" data-lang="ja">私たちが追求するのは、華美な装飾で飾られた道具ではなく、日々の暮らしのなかに完全に同化する実直な器具の製造です。日常用品や厨房用品は、生活の基盤を支える重要なインフラであるという認識のもと、使うたびに絶対的な安心感をもたらす確かな品質と、空間を阻害しない洗練された実用美の融合を常に目指しています。</p>
+                <p class="concept-paragraph" data-lang="en">Our focus rejects decorative elements, choosing instead to engineer honest, minimalist utilities that align completely with your physical household flow. Viewing kitchenware and daily tools as essential infrastructure for domestic life, we pursue a perfect balance where absolute material safety merges with a clean, unobtrusive aesthetic that honors the space it occupies.</p>
+                
+                <p class="concept-paragraph" data-lang="ja">製品の寿命を極限まで延ばし、安全性を徹底的に高めること。それによって無駄な消費を抑え、結果としてお客様の住空間と時間の過ごし方を、よりシンプルで贅沢なものへと変革させていく。この明確な思想が、設計から梱包に至るまでのすべてのプロセスを貫く共通の設計指針となっています。</p>
+                <p class="concept-paragraph" data-lang="en">By maximizing product operational lifespans and refining elemental safety configurations, we assist in lowering wasteful turnover. This direct methodology empowers households to upgrade their environments into cleaner, distraction-free zones. This structural philosophy serves as our unifying blueprint from early layout processing to final transport casing.</p>
+                
+                <p class="concept-paragraph" data-lang="ja">高度な安全性、耐久性、そして機能的合理性を追求したプロダクトは、日常の家事負担を大幅に軽減し、より豊かなライフスタイルの基盤を作ります。</p>
+                <p class="concept-paragraph" data-lang="en">Products integrated with supreme safety, rigorous endurance, and optimal geometric rationality reduce everyday domestic friction, building a concrete baseline for premium lifestyles.</p>
             </div>
-            <div class="visual-image-box"><img src="concept01.jpg" alt="Concept"></div>
+
+            <div class="visual-image-box">
+                <img src="concept01.jpg" alt="WYAX Design and Quality Philosophy">
+            </div>
         </div>
     </section>
 
+    <!-- 3. BRAND SECTION -->
     <section id="brand" class="container page-section">
-        <div class="grid-2">
-            <div class="visual-image-box"><img src="naiorio01.jpg" alt="Brand"></div>
-            <div>
+        <div class="brand-layout">
+            
+            <div class="visual-image-box">
+                <img src="naiorio01.jpg" alt="NAIORIO Material Architecture">
+            </div>
+
+            <div class="brand-story-box">
                 <h4>- NAIORIO -</h4>
-                <p data-lang="ja">NAIORIOはWYAX Co., Ltd.の基幹ブランドです。高密度シリコン素材を核とし、極めて高い耐熱性と耐久性を実現しました。調理器具から多機能収納ツールまで、暮らしの質を底上げする製品を開発しています。</p>
-                <p data-lang="en">NAIORIO is the primary proprietary brand cultivated by WYAX Co., Ltd., engineered to introduce absolute operational trust into modern home settings. Centered around high-density silicone, our collection offers superior heat defense and resilience.</p>
+                <p class="concept-paragraph" data-lang="ja"><strong>NAIORIO（ナイオリオ）</strong>は、確かな製造技術を背景に、日常の家庭環境へ圧倒的な信頼性と上質な一体感をもたらすために誕生した、WYAX Co., Ltd. の基幹オリジナルブランドです。現代の家事動線におけるあらゆる課題を解決するため、実用的な素材工学と時代に左右されない普遍的な造形美を組み合わせた製品を提案しています。</p>
+                <p class="concept-paragraph" data-lang="en"><strong>NAIORIO</strong> is the primary proprietary brand cultivated by WYAX Co., Ltd., engineered to introduce absolute operational trust and seamless integration into modern home settings. To resolve common operational pain points in daily domestic workflows, we deploy a sophisticated marriage of practical material engineering and timeless, geometric form.</p>
+                <p class="concept-paragraph" data-lang="ja">厳選された高密度シリコン素材をコア技術として採用し、極めて高い耐熱性、優れた防滑性、そして過酷な使用環境に耐えうる耐久性を実現しました。直接食品に触れる調理器具などの高度な安全性が求められる製品群から、居住空間を美しく整える非食品接触類の多機能収納ツールにいたるまで、一貫した製造哲学のもとで生産されています。暮らしをよりクリーンに、より機能的に変革する次世代の基準がここにあります。</p>
+                <p class="concept-paragraph" data-lang="en">Our collection centers heavily around high-density, certified silicone compounds, yielding maximum thermal resistance, optimized anti-slip security, and resilience under constant hard labor. Spanning from food-contact essentials requiring rigorous compliance checks to versatile storage items and non-food contact wares designed to organize spaces, every item reflects a singular manufacturing standard. This is the new standard constructed to elevate your complete living standard.</p>
             </div>
         </div>
     </section>
 
+    <!-- 4. PRODUCTS SECTION -->
     <section id="products" class="container page-section">
         <div class="products-grid">
-            <div class="product-card"><div class="product-card-image"><img src="coaster01.jpg" alt="Coasters"></div><div class="product-info"><div class="product-title">COASTERS</div><div class="product-desc" data-lang="ja">防水性と断熱性に優れたシリコンコースター。テーブルを熱や水分から保護します。</div><div class="product-desc" data-lang="en">Waterproof and heat-resistant silicone coasters to shield table surfaces.</div></div></div>
-            <div class="product-card"><div class="product-card-image"><img src="pan01.jpg" alt="Pot Mats"></div><div class="product-info"><div class="product-title">HEAT RESISTANT POT MATS</div><div class="product-desc" data-lang="ja">厚手で安定感のある耐熱マット。熱い鍋からカウンタートップを守ります。</div><div class="product-desc" data-lang="en">Thick heat-resistant mats providing secure protection for countertops.</div></div></div>
-            <div class="product-card"><div class="product-card-image"><img src="glove01.jpg" alt="Oven Mitts"></div><div class="product-info"><div class="product-title">OVEN MITTS</div><div class="product-desc" data-lang="ja">滑りにくいグリップと高い断熱性で、調理器具の取り扱いを安全に行えます。</div><div class="product-desc" data-lang="en">Anti-slip grip and thermal insulation for safe cookware handling.</div></div></div>
-            <div class="product-card"><div class="product-card-image"><img src="lid01.jpg" alt="Bowl Lids"></div><div class="product-info"><div class="product-title">BOWL LIDS</div><div class="product-desc" data-lang="ja">伸縮性に優れた蓋で密閉性を確保し、鮮度を長く保ちます。</div><div class="product-desc" data-lang="en">High-elasticity lids creating airtight seals to maintain food freshness.</div></div></div>
-        </div>
-    </section>
-
-    <section id="about" class="container page-section">
-        <div class="grid-2">
-            <div>
-                <h4>Corporate Vision</h4>
-                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の製造と国際貿易を通じて、世界中のお客様に洗練された暮らしを提案します。厳格な品質管理のもと、持続可能で実用的な製品をお届けします。</p>
-                <p data-lang="en">WYAX Co., Ltd. operates at the intersection of specialized home-goods fabrication, strategic international trade, and brand cultivation. We enrich global households with sustainable and practical products.</p>
+            <!-- 1. 杯垫 -->
+            <div class="product-card">
+                <div class="product-card-image"><img src="coaster01.jpg" alt="Premium Coasters"></div>
+                <div class="product-info">
+                    <div class="product-title">COASTERS</div>
+                    <div class="product-desc" data-lang="ja">高耐久なプレミアムシリコンを採用。優れた防水性と耐熱性能により、大切な家具の表面を水分や高熱から美しく保護します。</div>
+                    <div class="product-desc" data-lang="en">Formulated with premium-grade high-end silicone. Complete waterproof and high thermal shield qualities perfectly shield sensitive tabletops from hot vessels and wet rings.</div>
+                </div>
             </div>
-            <table class="company-info-table">
-                <tr><th>Company</th><td>WYAX Co., Ltd.</td></tr>
-                <tr><th>Address</th><td>1-31-8, Takadanobaba, Shinjuku, Tokyo, Japan</td></tr>
-                <tr><th>Tel</th><td>070-3519-6183</td></tr>
-                <tr><th>Email</th><td><a href="mailto:info@wyax.jp" class="web-link">info@wyax.jp</a></td></tr>
-                <tr><th>Website</th><td><a href="https://www.wyax.jp" target="_blank" class="web-link">www.wyax.jp</a></td></tr>
-            </table>
+            <!-- 2. 隔热锅垫 -->
+            <div class="product-card">
+                <div class="product-card-image"><img src="pan01.jpg" alt="Heat Resistant Pot Mats"></div>
+                <div class="product-info">
+                    <div class="product-title">HEAT RESISTANT POT MATS</div>
+                    <div class="product-desc" data-lang="ja">極めて高い熱伝導阻害性能を持つ厚手設計。熱い鍋やフライパンを安定して置くことができ、キッチンカウンターを傷つけません。</div>
+                    <div class="product-desc" data-lang="en">Heavy-duty thick structure tuned for critical thermal isolation. Securely supports boiling pots and pans while insulating workspace finishes against high heat breakdown.</div>
+                </div>
+            </div>
+            <!-- 3. 烤箱隔热手套 -->
+            <div class="product-card">
+                <div class="product-card-image"><img src="glove01.jpg" alt="Oven Gloves"></div>
+                <div class="product-info">
+                    <div class="product-title">OVEN MITTS</div>
+                    <div class="product-desc" data-lang="ja">熱を完全に遮断する多層防護構造。滑りにくい特殊エンボステクスチャが抜群のグリップ力を生み、加熱調理時の安全な作業を支援します。</div>
+                    <div class="product-desc" data-lang="en">Multi-layered defensive layout certified to clear hot zone manipulation safely. Fitted with dynamic patterns to supply maximum anti-slip grip under rigorous baking situations.</div>
+                </div>
+            </div>
+            <!-- 4. 硅胶碗盖 -->
+            <div class="product-card">
+                <div class="product-card-image"><img src="lid01.jpg" alt="Silicone Bowl Lids"></div>
+                <div class="product-info">
+                    <div class="product-title">SILICONE BOWL LIDS</div>
+                    <div class="product-desc" data-lang="ja">優れた伸縮性と吸着力で多様な形状の容器を完全密閉。食材の鮮度を長くクリーンに保つことができ、繰り返し使える環境配慮型設計です。</div>
+                    <div class="product-desc" data-lang="en">High-stretch adaptable flexible caps built to forge solid airtight boundaries over varied bowls. Effectively locks in moisture and freshness, supporting reusable food-management values.</div>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- 5. ABOUT SECTION -->
+    <section id="about" class="container page-section">
+        <div class="about-layout">
+            
+            <!-- 愿景移至上方 -->
+            <div class="about-statement">
+                <h4 data-lang="ja">企業ビジョンとグローバル展開</h4>
+                <h4 data-lang="en">Corporate Vision & International Scope</h4>
+                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の製造、国際貿易、およびプライベートブランドの開発をコアビジネスとして展開しています。私たちは、各地域の文化や生活様式に深く根ざした実用的な価値を見極め、それを確かな製造技術によって具現化し、世界各地へ安定的に届けるサプライチェーンを確立しています。</p>
+                <p data-lang="en">WYAX Co., Ltd. operates at the intersection of specialized home-goods fabrication, strategic international trade, and proprietary brand cultivation. We identify pragmatic values rooted within regional lifestyles, actualize them via advanced manufacturing assets, and maintain a seamless global supply chain network spanning cross-border custom pathways.</p>
+                <p data-lang="ja">私たちは単なる商品の流通にとどまらず、素材のイノベーションや環境配慮型設計を通じて、持続可能で高品質なライフスタイルをトータルにサポートできるグローバル企業への成長を目指しています。世界中のパートナー企業との強固な信頼関係のもと、確かな満足を約束する製品開発に邁進してまいります。</p>
+                <p data-lang="en">Beyond elementary logistics, our structural goal targets long-term ecological compliance and material innovation. We continuously solidify our framework alongside premier global affiliates, allocating our research toward progressive, deeply satisfying consumer products that shape tomorrow's domestic paradigm.</p>
+            </div>
+
+            <!-- 联系信息移至下方 -->
+            <table class="company-info-table">
+                <tr>
+                    <th data-lang="ja">会社名</th><th data-lang="en">Company Name</th>
+                    <td>WYAX Co., Ltd.</td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">本社所在地</th><th data-lang="en">Registered Address</th>
+                    <td data-lang="ja">〒169-0075 東京都新宿区高田馬場１−３１−８</td>
+                    <td data-lang="en">1-31-8, Takadanobaba, Shinjuku, Tokyo, 169-0075, Japan</td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">電話番号</th><th data-lang="en">Telephone</th>
+                    <td data-lang="ja">070-3519-6183</td>
+                    <td data-lang="en">+81 (0)70-3519-6183</td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">Eメール</th><th data-lang="en">Email Address</th>
+                    <td><a href="mailto:info@wyax.jp" class="web-link">info@wyax.jp</a></td>
+                </tr>
+                <tr>
+                    <th data-lang="ja">公式サイト</th><th data-lang="en">Official Website</th>
+                    <td><a href="https://www.wyax.jp" target="_blank" class="web-link">www.wyax.jp</a></td>
+                </tr>
+            </table>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
         <div class="container footer-flex">
-            <div class="footer-logo"><h4>WYAX<span>Co., Ltd.</span></h4></div>
-            <div class="copyright">&copy; 2026 WYAX Co., Ltd. All Rights Reserved.</div>
+            <div class="footer-logo">
+                <h4>WYAX<span>Co., Ltd.</span></h4>
+            </div>
+            <div class="copyright">
+                &copy; 2026 WYAX Co., Ltd. All Rights Reserved.
+            </div>
         </div>
     </footer>
 
+    <!-- Script 交互控制 -->
     <script>
         function showSection(sectionId, element) {
-            document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-page'));
-            document.getElementById(sectionId).classList.add('active-page');
-            document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('active-menu'));
+            const sections = document.querySelectorAll('.page-section');
+            sections.forEach(sec => sec.classList.remove('active-page'));
+            
+            const targetSection = document.getElementById(sectionId);
+            if(targetSection) targetSection.classList.add('active-page');
+
+            const menuLinks = document.querySelectorAll('.menu-link');
+            menuLinks.forEach(link => link.classList.remove('active-menu'));
             element.classList.add('active-menu');
+
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-        function switchLang(lang) { document.body.className = 'lang-' + lang; }
+
+        function switchLang(lang) {
+            document.body.className = 'lang-' + lang;
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if(lang === 'ja') { buttons[0].classList.add('active'); } 
+            else { buttons[1].classList.add('active'); }
+        }
     </script>
 </body>
 </html>
