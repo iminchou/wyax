@@ -3,17 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WYAX | NAIORIO Premium Silicone Ware</title>
+    <title>WYAX Co., Ltd. | NAIORIO Premium Silicone Ware</title>
+    
+    <!-- 引入类似 Ablation 风格的现代扩展几何无衬线云端字体（作为跨平台完美端正渲染保障） -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+
     <style>
+        /* 
+           定义本地专属 Ablation 字体族，并严格限制其展现状态为不倾斜（normal）
+        */
+        @font-face {
+            font-family: 'Ablation';
+            src: local('Ablation'), local('Ablation-Regular');
+            font-style: normal; /* 锁定不使用斜体 */
+        }
+
         :root {
             --primary-color: #1a1a1a;
             --secondary-color: #7f8c8d;
             --bg-light: #f9f9f9;
             --bg-white: #ffffff;
             --border-color: #e0e0e0;
-            --accent-color: #5a6b5c; /* Soft sage/slate accent */
+            --accent-color: #5a6b5c;
             --text-dark: #2c3e50;
-            --text-light: #7f8c8d;
+            
+            /* 设定专属现代品牌字体族，并强制所有英文字体呈现为正体，不要斜体 */
+            --font-ablation: 'Ablation', 'Syncopate', -apple-system, sans-serif;
         }
 
         * {
@@ -22,11 +39,16 @@
             padding: 0;
         }
 
+        html {
+            scroll-behavior: smooth; /* 让点击菜单跳转时拥有平滑滚动效果 */
+        }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
             color: var(--primary-color);
             line-height: 1.6;
             background-color: var(--bg-white);
+            font-style: normal; /* 全局确保不要斜体 */
         }
 
         .container {
@@ -52,30 +74,43 @@
         }
 
         .logo-box h1 {
-            font-size: 24px;
+            font-family: var(--font-ablation); 
+            font-size: 26px;
             font-weight: 700;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
+            font-style: normal; 
         }
 
         .logo-box span {
-            font-size: 12px;
+            font-family: var(--font-ablation); 
+            font-size: 9px;
             color: var(--secondary-color);
             display: block;
-            letter-spacing: 1px;
-            margin-top: -2px;
+            letter-spacing: 2px;
+            margin-top: 1px;
+            font-style: normal; 
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 40px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 25px;
         }
 
         nav ul li a {
+            font-family: var(--font-ablation); 
             text-decoration: none;
             color: var(--primary-color);
-            font-size: 14px;
-            font-weight: 500;
+            font-size: 11px; 
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-style: normal; 
             transition: color 0.3s ease;
         }
 
@@ -83,9 +118,38 @@
             color: var(--accent-color);
         }
 
-        /* Hero Section */
+        /* Language Switcher */
+        .lang-switch {
+            display: flex;
+            gap: 5px;
+            border: 1px solid var(--border-color);
+            padding: 2px;
+            border-radius: 4px;
+            background: var(--bg-light);
+        }
+
+        .lang-btn {
+            font-family: var(--font-ablation);
+            background: none;
+            border: none;
+            padding: 4px 10px;
+            font-size: 10px;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--secondary-color);
+            border-radius: 3px;
+            font-style: normal; 
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.active {
+            background-color: var(--primary-color);
+            color: var(--bg-white);
+        }
+
+        /* Hero / HOME Section */
         .hero {
-            padding: 80px 0;
+            padding: 110px 0;
             text-align: center;
             background-color: var(--bg-light);
             border-bottom: 1px solid var(--border-color);
@@ -94,47 +158,83 @@
         .hero h2 {
             font-size: 32px;
             font-weight: 400;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             letter-spacing: 1px;
+            font-style: normal;
+        }
+        
+        body.lang-en .hero h2 {
+            font-family: var(--font-ablation);
+            font-size: 26px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1.4;
+            font-style: normal; 
         }
 
         .hero p {
             font-size: 16px;
             color: var(--secondary-color);
             max-width: 700px;
-            margin: 0 auto 10px auto;
+            margin: 0 auto;
+            font-style: normal;
         }
 
-        .hero .en-sub {
-            font-style: italic;
-            font-size: 15px;
-            opacity: 0.8;
-        }
-
-        /* Brand Concept Section */
+        /* Concept Section (子菜单 1) */
         .concept {
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
 
         .concept h3 {
-            font-size: 22px;
-            margin-bottom: 20px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            font-family: var(--font-ablation); 
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 5px;
+            font-style: normal; 
         }
 
         .concept p {
             max-width: 800px;
-            margin: 0 auto 15px auto;
+            margin: 0 auto;
             color: var(--text-dark);
             font-size: 15px;
+            white-space: pre-line;
+            font-style: normal;
         }
 
-        /* Products Grid */
+        /* Brand Story Section (子菜单 2) */
+        .brand-story {
+            padding: 80px 0;
+            text-align: center;
+            background-color: var(--bg-light);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .brand-story h3 {
+            font-family: var(--font-ablation);
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            letter-spacing: 5px;
+            font-style: normal;
+        }
+
+        .brand-story p {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-dark);
+            font-size: 15px;
+            white-space: pre-line;
+            font-style: normal;
+        }
+
+        /* Products Grid Section (子菜单 3) */
         .products-section {
             padding: 80px 0;
+            border-bottom: 1px solid var(--border-color);
         }
 
         .section-title {
@@ -143,14 +243,16 @@
         }
 
         .section-title h3 {
-            font-size: 26px;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            font-family: var(--font-ablation); 
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            font-style: normal; 
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
         }
 
@@ -169,13 +271,12 @@
 
         .product-image {
             width: 100%;
-            height: 280px;
+            height: 300px;
             background-color: #eaeaea;
             display: flex;
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            position: relative;
         }
 
         .product-image img {
@@ -188,18 +289,20 @@
             padding: 25px;
         }
 
-        .product-title-ja {
+        .product-title {
             font-size: 18px;
             font-weight: 600;
-            margin-bottom: 4px;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+            font-style: normal;
         }
-
-        .product-title-en {
+        
+        body.lang-en .product-title {
+            font-family: var(--font-ablation);
             font-size: 14px;
-            color: var(--secondary-color);
-            text-transform: uppercase;
+            font-weight: 700;
             letter-spacing: 1px;
-            margin-bottom: 15px;
+            font-style: normal; 
         }
 
         .product-desc {
@@ -207,7 +310,9 @@
             color: #555;
             margin-bottom: 15px;
             border-top: 1px solid #f0f0f0;
-            padding-top: 10px;
+            padding-top: 12px;
+            min-height: 60px;
+            font-style: normal;
         }
 
         .product-features {
@@ -218,67 +323,94 @@
         }
 
         .product-features li {
-            font-size: 11px;
+            font-family: var(--font-ablation);
+            font-size: 9px;
+            font-weight: 700;
             background-color: var(--bg-light);
             color: #666;
-            padding: 3px 8px;
+            padding: 4px 8px;
             border-radius: 2px;
             border: 1px solid #e8e8e8;
+            font-style: normal; 
         }
 
-        /* Footer Section */
+        /* Footer Section / ABOUT (子菜单 4) */
         footer {
             background-color: var(--primary-color);
             color: var(--bg-white);
-            padding: 60px 0 30px 0;
+            padding: 70px 0 30px 0;
             font-size: 13px;
         }
 
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 40px;
-            margin-bottom: 4px;
             border-bottom: 1px solid #333;
-            padding-bottom: 4px;
+            padding-bottom: 40px;
         }
 
         .footer-about h4, .footer-links h4 {
-            font-size: 15px;
+            font-family: var(--font-ablation);
+            font-size: 13px;
+            font-weight: 700;
             margin-bottom: 20px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             color: #f1f1f1;
+            font-style: normal; 
         }
 
         .footer-about p {
             color: #aaa;
             line-height: 1.8;
             margin-bottom: 10px;
+            font-style: normal;
         }
 
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links ul li {
-            margin-bottom: 10px;
-        }
-
-        .footer-links ul li a {
+        .footer-links p {
             color: #aaa;
-            text-decoration: none;
-            transition: color 0.3s ease;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            font-style: normal;
         }
 
-        .footer-links ul li a:hover {
-            color: var(--bg-white);
+        .footer-links p strong {
+            color: #fff;
+        }
+        
+        .footer-links p span.eng-detail {
+            font-size: 12px;
+            letter-spacing: 0.5px;
+            font-style: normal;
         }
 
         .copyright {
+            font-family: var(--font-ablation);
             text-align: center;
-            color: #666;
+            color: #555;
             margin-top: 30px;
-            font-size: 12px;
+            font-size: 10px;
+            letter-spacing: 1px;
+            font-style: normal; 
+        }
+
+        /* Language Visibility Controls */
+        [data-lang] {
+            display: none;
+        }
+        
+        body.lang-ja [data-lang="ja"] {
+            display: block;
+        }
+        body.lang-ja span[data-lang="ja"] {
+            display: inline;
+        }
+        
+        body.lang-en [data-lang="en"] {
+            display: block;
+        }
+        body.lang-en span[data-lang="en"] {
+            display: inline;
         }
 
         @media (max-width: 768px) {
@@ -286,60 +418,86 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            .nav-right {
+                flex-direction: column;
+                gap: 15px;
+            }
             nav ul {
                 gap: 15px;
             }
             .hero h2 {
-                font-size: 24px;
+                font-size: 22px;
             }
         }
     </style>
 </head>
-<body>
+<body class="lang-ja"> <!-- 默认展示日文界面 -->
 
     <!-- Header -->
     <header>
         <div class="container header-container">
             <div class="logo-box">
                 <h1>WYAX</h1>
-                <span>CORPORATION</span>
+                <span>Co., Ltd.</span>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#brand">NAIORIO</a></li>
-                    <li><a href="#products">PRODUCTS</a></li>
-                    <li><a href="#about">ABOUT US</a></li>
-                </ul>
-            </nav>
+            <div class="nav-right">
+                <nav>
+                    <ul>
+                        <!-- 主菜单 HOME，以及平滑滚动对齐的子菜单锚点 -->
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#concept">CONCEPT</a></li>
+                        <li><a href="#brand">BRAND</a></li>
+                        <li><a href="#products">PRODUCTS</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                    </ul>
+                </nav>
+                <!-- 切换语言按钮 -->
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="switchLang('ja')">JP</button>
+                    <button class="lang-btn" onclick="switchLang('en')">EN</button>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- Hero -->
+    <!-- HOME / Hero Section -->
     <section class="hero" id="home">
         <div class="container">
-            <h2>上質な暮らしに寄り添う、極限のシリコンウェア。</h2>
-            <p class="en-sub">Minimalist Silicone Ware for Elevated Living.</p>
-            <p style="margin-top: 20px; font-size: 14px;">機能美とミニマリズムの融合。WYAXが提案するプレミアム・キッチンツールブランド。</p>
-            <p class="en-sub" style="font-size: 13px;">The fusion of functional beauty and minimalism. A premium kitchenware brand presented by WYAX.</p>
+            <h2 data-lang="ja">上質な暮らしに寄り添う、極限のシリコンウェア。</h2>
+            <h2 data-lang="en">MINIMALIST SILICONE WARE FOR ELEVATED LIVING.</h2>
+            <p data-lang="ja">機能美とミニマリズムの融合。WYAX Co., Ltd. が提案するプレミアム・キッチンツールブランド。</p>
+            <p data-lang="en">The fusion of functional beauty and minimalism. A premium kitchenware brand presented by WYAX Co., Ltd.</p>
         </div>
     </section>
 
-    <!-- Brand Concept -->
-    <section class="concept" id="brand">
+    <!-- CONCEPT Section (子菜单 1) -->
+    <section class="concept" id="concept">
         <div class="container">
-            <h3>- BRAND CONCEPT -</h3>
-            <p><strong>NAIORIO（ナイオリオ）</strong>は、現代のライフスタイルに洗練された心地よさをもたらすために生まれた、WYAXのオリジナルブランドです。最高品質の食品グレードシリコン素材を採用し、無駄を削ぎ落としたタイムレスなデザインと、日常に溶け込む圧倒的な使いやすさを追求しています。</p>
-            <p class="en-sub" style="color: var(--secondary-color);"><strong>NAIORIO</strong> is an original brand by WYAX, crafted to bring refined comfort to contemporary lifestyles. Utilizing the highest grade of food-safe silicone, we pursue timeless, distraction-free designs balanced with exceptional everyday utility.</p>
+            <h3 data-lang="ja">- BRAND CONCEPT -</h3>
+            <h3 data-lang="en">- BRAND CONCEPT -</h3>
+            <p data-lang="ja">私たちは、ただの道具ではなく、空間と調和する「美しさ」と、毎日使いたくなる「機能性」を追求しています。
+            NAIORIOが目指すのは、無駄をそぎ落としたデザインによって、日々の暮らしに心地よいリズムと豊かさをもたらすことです。</p>
+            <p data-lang="en">Beyond mere utensils, we pursue "beauty" that harmonizes with spaces and "functionality" that makes you want to use it every day. 
+            NAIORIO aims to bring a comfortable rhythm and richness to daily life through distraction-free, minimalist design.</p>
         </div>
     </section>
 
-    <!-- Products Section -->
+    <!-- BRAND Section (子菜单 2) -->
+    <section class="brand-story" id="brand">
+        <div class="container">
+            <h3 data-lang="ja">- NAIORIO STORY -</h3>
+            <h3 data-lang="en">- NAIORIO STORY -</h3>
+            <p data-lang="ja"><strong>NAIORIO（ナイオリオ）</strong>は、現代のライフスタイルに洗練された心地よさをもたらすために生まれた、WYAX Co., Ltd. のオリジナルブランドです。最高品質の食品グレードシリコン素材を採用し、無駄を削ぎ落としたタイムレスなデザインと、日常に溶け込む圧倒的な使いやすさを追求しています。</p>
+            <p data-lang="en"><strong>NAIORIO</strong> is an original brand by WYAX Co., Ltd., crafted to bring refined comfort to contemporary lifestyles. Utilizing the highest grade of food-safe silicone, we pursue timeless, distraction-free designs balanced with exceptional everyday utility.</p>
+        </div>
+    </section>
+
+    <!-- PRODUCTS Section (子菜单 3) -->
     <section class="products-section" id="products">
         <div class="container">
             <div class="section-title">
-                <h3>PRODUCT COLLECTION</h3>
-                <p class="en-sub">シリコン・キッチンプロダクト製品一覧</p>
+                <h3 data-lang="ja">製品コレクション</h3>
+                <h3 data-lang="en">PRODUCT COLLECTION</h3>
             </div>
 
             <div class="products-grid">
@@ -347,21 +505,16 @@
                 <!-- Product 1: Coasters -->
                 <div class="product-card">
                     <div class="product-image">
-                        <!-- 用户可将图片重命名为 coaster.jpg 放入同级目录 -->
-                        <img src="02BL1.jpg" alt="NAIORIO Silicone Coaster Set">
+                        <img src="02BL1.jpg" alt="NAIORIO Silicone Coasters">
                     </div>
                     <div class="product-info">
-                        <div class="product-title-ja">シリコン コースター (6枚セット)</div>
-                        <div class="product-title-en">Silicone Coaster Set (6 Pcs)</div>
-                        <div class="product-desc">
-                            美しい花のようなディテールとモダンな色彩。滑りにくく、耐熱・防水性に優れたプレミアムデザイン。<br>
-                            <span class="en-sub" style="font-size: 12px; display:block; margin-top:5px;">Elegant flower-inspired design with rich texture. Non-slip, heat-resistant, and completely waterproof.</span>
-                        </div>
+                        <div class="product-title" data-lang="ja">シリコン コースター</div>
+                        <div class="product-title" data-lang="en">SILICONE COASTER SET</div>
+                        <div class="product-desc" data-lang="ja">美しい花のようなディテールとモダンな色彩。滑りにくく、耐熱・防水性に優れたプレミアムデザイン。</div>
+                        <div class="product-desc" data-lang="en">Elegant flower-inspired design with rich texture. Non-slip, heat-resistant, and completely waterproof.</div>
                         <ul class="product-features">
-                            <li>Heat Resistant</li>
-                            <li>Non-Slip</li>
-                            <li>Waterproof</li>
-                            <li>6-Piece Set</li>
+                            <li>HEAT RESISTANT</li>
+                            <li>NON-SLIP</li>
                         </ul>
                     </div>
                 </div>
@@ -372,17 +525,13 @@
                         <img src="baking_mat.jpg" alt="NAIORIO Silicone Baking Mat">
                     </div>
                     <div class="product-info">
-                        <div class="product-title-ja">シリコン ベーキングマット</div>
-                        <div class="product-title-en">Silicone Baking Mat</div>
-                        <div class="product-desc">
-                            正確な目盛りが印字された、生地がくっつきにくいプロ仕様のマット。洗って繰り返し使えて環境に優しい。<br>
-                            <span class="en-sub" style="font-size: 12px; display:block; margin-top:5px;">Non-stick surface with precise measurement guides. Eco-friendly alternative to parchment paper.</span>
-                        </div>
+                        <div class="product-title" data-lang="ja">シリコン ベーキングマット</div>
+                        <div class="product-title" data-lang="en">SILICONE BAKING MAT</div>
+                        <div class="product-desc" data-lang="ja">正確な目盛りが印字された、生地がくっつきにくいプロ仕様のマット。洗って繰り返し使えて環境に優しい。</div>
+                        <div class="product-desc" data-lang="en">Non-stick surface with precise measurement guides. Eco-friendly alternative to parchment paper.</div>
                         <ul class="product-features">
-                            <li>Eco-Friendly</li>
-                            <li>Non-Stick</li>
-                            <li>Measurement Guides</li>
-                            <li>Easy Clean</li>
+                            <li>ECO-FRIENDLY</li>
+                            <li>NON-STICK</li>
                         </ul>
                     </div>
                 </div>
@@ -393,17 +542,13 @@
                         <img src="oven_glove.jpg" alt="NAIORIO Silicone Oven Gloves">
                     </div>
                     <div class="product-info">
-                        <div class="product-title-ja">シリコン オーブンミトン</div>
-                        <div class="product-title-en">Silicone Oven Gloves</div>
-                        <div class="product-desc">
-                            繊細な凸凹テクスチャにより強力なグリップ力を実現。熱いオーブン料理も安全に運べる抜群の耐熱プロテクション。<br>
-                            <span class="en-sub" style="font-size: 12px; display:block; margin-top:5px;">Textured grid grip for maximum stability. Superior heat insulation for handling hot cookware safely.</span>
-                        </div>
+                        <div class="product-title" data-lang="ja">シリコン オーブンミトン</div>
+                        <div class="product-title" data-lang="en">SILICONE OVEN GLOVES</div>
+                        <div class="product-desc" data-lang="ja">繊細な凸凹テクスチャにより強力なグリップ力を実現。熱いオーブン料理も安全に運べる抜群の耐熱プロテクション。</div>
+                        <div class="product-desc" data-lang="en">Textured grid grip for maximum stability. Superior heat insulation for handling hot cookware safely.</div>
                         <ul class="product-features">
-                            <li>Max Protection</li>
-                            <li>Anti-Scald</li>
-                            <li>Grid Texture</li>
-                            <li>Flexible Fit</li>
+                            <li>MAX PROTECTION</li>
+                            <li>GRID TEXTURE</li>
                         </ul>
                     </div>
                 </div>
@@ -414,17 +559,13 @@
                         <img src="stretch_lids.jpg" alt="NAIORIO Silicone Stretch Lids">
                     </div>
                     <div class="product-info">
-                        <div class="product-title-ja">シリコン マルチストレッチ蓋</div>
-                        <div class="product-title-en">Silicone Stretch Lids</div>
-                        <div class="product-desc">
-                            様々な形状の器に柔軟にフィット。密閉性が高く、食品の新鮮さを長持ちさせる万能エコカバー。<br>
-                            <span class="en-sub" style="font-size: 12px; display:block; margin-top:5px;">Highly elastic bands fitting various bowl shapes. Creates an airtight seal to lock in food freshness.</span>
-                        </div>
+                        <div class="product-title" data-lang="ja">シリコン マルチストレッチ蓋</div>
+                        <div class="product-title" data-lang="en">SILICONE STRETCH LIDS</div>
+                        <div class="product-desc" data-lang="ja">様々な形状の器に柔軟にフィット。密閉性が高く、食品の新鮮さを长持ちさせる万能エコカバー。</div>
+                        <div class="product-desc" data-lang="en">Highly elastic bands fitting various bowl shapes. Creates an airtight seal to lock in food freshness.</div>
                         <ul class="product-features">
-                            <li>Airtight Seal</li>
-                            <li>High Elasticity</li>
-                            <li>Reusable</li>
-                            <li>Multi-Size</li>
+                            <li>AIRTIGHT SEAL</li>
+                            <li>REUSABLE</li>
                         </ul>
                     </div>
                 </div>
@@ -435,17 +576,13 @@
                         <img src="storage_bags.jpg" alt="NAIORIO Silicone Food Storage Bags">
                     </div>
                     <div class="product-info">
-                        <div class="product-title-ja">シリコン 食品保存袋</div>
-                        <div class="product-title-en">Silicone Food Storage Bags</div>
-                        <div class="product-desc">
-                            冷蔵・冷凍から湯煎まで対応。漏れを防ぐ安心設計で、野菜や作り置きの鮮度をクリーンに保ちます。<br>
-                            <span class="en-sub" style="font-size: 12px; display:block; margin-top:5px;">Leak-proof reusable storage bags. Safe for fridge, freezer, and sous-vide cooking.</span>
-                        </div>
+                        <div class="product-title" data-lang="ja">シリコン 食品保存袋</div>
+                        <div class="product-title" data-lang="en">SILICONE STORAGE BAGS</div>
+                        <div class="product-desc" data-lang="ja">冷蔵・冷凍から汤煎まで対応。漏れを防ぐ安心設計で、野菜や作り置きの鮮度をクリーンに保ちます。</div>
+                        <div class="product-desc" data-lang="en">Leak-proof reusable storage bags. Safe for fridge, freezer, and sous-vide cooking.</div>
                         <ul class="product-features">
-                            <li>Leak-Proof</li>
-                            <li>Freezer Safe</li>
-                            <li>BPA Free</li>
-                            <li>Eco Friendly</li>
+                            <li>LEAK-PROOF</li>
+                            <li>BPA FREE</li>
                         </ul>
                     </div>
                 </div>
@@ -456,17 +593,13 @@
                         <img src="drying_mat.jpg" alt="NAIORIO Silicone Dish Drying Mat">
                     </div>
                     <div class="product-info">
-                        <div class="product-title-ja">シリコン 水切りマット</div>
-                        <div class="product-title-en">Silicone Dish Drying Mat</div>
-                        <div class="product-desc">
-                            リブ（溝）構造が素早い乾燥を促し、使用後は丸めてコンパクトに収納。キッチンの省スペースに最適。<br>
-                            <span class="en-sub" style="font-size: 12px; display:block; margin-top:5px;">Smart ridged structure accents swift drying. Rolls up easily for clutter-free, compact storage.</span>
-                        </div>
+                        <div class="product-title" data-lang="ja">シリコン 水切りマット</div>
+                        <div class="product-title" data-lang="en">SILICONE DISH DRYING MAT</div>
+                        <div class="product-desc" data-lang="ja">リブ（溝）構造が素早い乾燥を促し、使用後は丸めてコンパクトに収納。キッチンの省スペースに最適。</div>
+                        <div class="product-desc" data-lang="en">Smart ridged structure ensures swift drying. Rolls up easily for clutter-free, compact storage.</div>
                         <ul class="product-features">
-                            <li>Fast Drying</li>
-                            <li>Space Saving</li>
-                            <li>Heat Resistant</li>
-                            <li>Durable</li>
+                            <li>FAST DRYING</li>
+                            <li>SPACE SAVING</li>
                         </ul>
                     </div>
                 </div>
@@ -475,20 +608,27 @@
         </div>
     </section>
 
-    <!-- Footer / About Us -->
+    <!-- ABOUT / Footer Section (子菜单 4) -->
     <footer id="about">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-about">
-                    <h4>WYAX Co., Ltd. (ワイアックス株式会社)</h4>
-                    <p>WYAXは、暮らしの質を高める高品質な生活雑貨・家庭用品の国際貿易およびブランド開発を行っています。</p>
-                    <p class="en-sub" style="color: #888; font-size:12px;">WYAX specializes in the international trade and development of premium household goods designed to elevate daily living.</p>
+                    <h4>WYAX Co., Ltd.</h4>
+                    <p data-lang="ja">WYAX Co., Ltd. は、暮らしの質を高める高品質な生活雑貨・家庭用品の国際貿易およびブランド開発を行っています。</p>
+                    <p data-lang="en">WYAX Co., Ltd. specializes in the international trade and development of premium household goods designed to elevate daily living.</p>
                 </div>
                 <div class="footer-links">
-                    <h4>CONTACT & INFO</h4>
-                    <p>Brand: NAIORIO (ナイオリオ)</p>
-                    <p>Corporate Site: www.wyax.jp</p>
-                    <p style="margin-top: 10px;">Inquiries / お問い合わせ:<br><span style="color:#fff; font-weight:600;">info@wyax.jp</span></p>
+                    <h4 data-lang="ja">会社概要</h4>
+                    <h4 data-lang="en">COMPANY INFO</h4>
+                    
+                    <p data-lang="ja"><strong>本社所在地:</strong><br>〒169-0075 東京都新宿区高田馬場１−３１−８</p>
+                    <p data-lang="en"><strong>Address:</strong><br><span class="eng-detail">1-31-8, Takadanobaba, Shinjuku, Tokyo, 169-0075, Japan</span></p>
+                    
+                    <p data-lang="ja"><strong>電話番号:</strong> 070-3519-6183</p>
+                    <p data-lang="en"><strong>Tel:</strong> <span class="eng-detail">+81 (0)70-3519-6183</span></p>
+                    
+                    <p style="margin-top: 15px;"><strong>Official Site:</strong> <span class="eng-detail">www.wyax.jp</span></p>
+                    <p><strong>Email:</strong> <span class="eng-detail">info@wyax.jp</span></p>
                 </div>
             </div>
             <div class="copyright">
@@ -497,5 +637,20 @@
         </div>
     </footer>
 
+    <!-- 切换语言脚本 -->
+    <script>
+        function switchLang(lang) {
+            document.body.className = 'lang-' + lang;
+            
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            if(lang === 'ja') {
+                buttons[0].classList.add('active');
+            } else {
+                buttons[1].classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>
