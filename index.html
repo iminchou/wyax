@@ -52,13 +52,8 @@
         .visual-image-box { width: 100%; height: 350px; overflow: hidden; background-color: var(--light-sage); }
         .visual-image-box img { width: 100%; height: 100%; object-fit: cover; opacity: 0.95; }
 
-        /* 内容布局 */
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
-
-        /* ABOUT 紧凑表格设计 */
         .about-layout { display: flex; flex-direction: column; gap: 40px; }
-        .about-statement h4 { font-size: 15px; margin-bottom: 10px; letter-spacing: 1px; color: var(--dark-slate); }
-        .about-statement p { font-size: 13px; color: #555555; text-align: justify; margin-bottom: 10px; }
         
         .company-info-table { width: 100%; border-collapse: collapse; }
         .company-info-table tr { border-bottom: 1px solid #eeeeee; }
@@ -68,7 +63,6 @@
         .web-link { color: var(--text-main); text-decoration: none; }
         .web-link:hover { color: var(--primary-sage); }
 
-        /* PRODUCTS Grid */
         .products-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
         .product-card-image { width: 100%; height: 280px; background-color: var(--light-sage); }
         .product-card-image img { width: 100%; height: 100%; object-fit: cover; }
@@ -76,7 +70,6 @@
         .product-title { font-size: 14px; margin-bottom: 8px; letter-spacing: 1px; color: var(--dark-slate); }
         .product-desc { font-size: 12px; color: #555; }
 
-        /* Footer */
         footer { background-color: var(--dark-slate); color: rgba(255, 255, 255, 0.7); padding: 40px 0; font-size: 12px; }
         .footer-flex { display: flex; justify-content: space-between; align-items: center; }
         .footer-logo h4 { color: #fff; font-size: 16px; letter-spacing: 1px; display: inline-block; }
@@ -118,57 +111,56 @@
         </div>
     </header>
 
-    <!-- HOME -->
     <section id="home" class="container page-section active-page">
         <div class="grid-2">
             <div>
-                <h3>Specialized Manufacturing Platform</h3>
-                <p>WYAX Co., Ltd. focuses strictly on the production, engineering, and global development of contemporary household merchandise and advanced kitchenware assets. We deliver premium-grade solutions built directly from the consumer's perspective, refusing to compromise on quality.</p>
-                <p>Our products integrate flawlessly into living environments, transforming routine tasks into streamlined movements. Every item is embedded with structural durability and certified safety metrics to inject practical value into the modern household ecosystem.</p>
+                <h3 data-lang="ja">家庭用品および厨房用品の専門製造プラットフォーム</h3>
+                <h3 data-lang="en">Specialized Manufacturing Platform for Household & Kitchen Wares</h3>
+                <p data-lang="ja">WYAX Co., Ltd. は、現代の生活環境に最適化された日常用品および厨房用品の生産と開発に特化しています。長年の製造技術と厳格な品質管理体制を基盤とし、使う人の視点に立った高品質な製品を供給しています。</p>
+                <p data-lang="en">WYAX Co., Ltd. focuses strictly on the production, engineering, and global development of contemporary household merchandise and advanced kitchenware assets. We deliver premium-grade solutions built directly from the consumer's perspective.</p>
             </div>
             <div class="visual-image-box"><img src="home01.jpg" alt="Manufacturing"></div>
         </div>
     </section>
 
-    <!-- CONCEPT -->
     <section id="concept" class="container page-section">
         <div class="grid-2">
             <div>
-                <p>Our focus rejects decorative elements, choosing instead to engineer honest, minimalist utilities that align completely with your physical household flow. We pursue a balance where absolute material safety merges with a clean, unobtrusive aesthetic.</p>
-                <p>By maximizing product lifespans and refining safety configurations, we assist in lowering wasteful turnover, empowering households to upgrade their environments into distraction-free zones.</p>
+                <p data-lang="ja">私たちは、日常の暮らしに自然に溶け込む実直な製品づくりを追求しています。過剰な装飾を排し、製品そのものが持つ機能美と耐久性を最大限に引き出すことで、長く愛用いただける品質を実現しています。</p>
+                <p data-lang="en">Our focus rejects decorative elements, choosing instead to engineer honest, minimalist utilities that align completely with your physical household flow. We pursue a balance where absolute material safety merges with unobtrusive aesthetic.</p>
+                <p data-lang="ja">安全性と実用性を両立させ、日々の家事動線をよりシンプルで快適なものへと変革させることが、私たちの変わらぬコンセプトです。</p>
+                <p data-lang="en">By maximizing product lifespans and refining safety configurations, we assist in lowering wasteful turnover, empowering households to upgrade their environments into distraction-free zones.</p>
             </div>
             <div class="visual-image-box"><img src="concept01.jpg" alt="Concept"></div>
         </div>
     </section>
 
-    <!-- BRAND -->
     <section id="brand" class="container page-section">
         <div class="grid-2">
             <div class="visual-image-box"><img src="naiorio01.jpg" alt="Brand"></div>
             <div>
                 <h4>- NAIORIO -</h4>
-                <p>NAIORIO is the primary proprietary brand cultivated by WYAX Co., Ltd., engineered to introduce absolute operational trust and seamless integration into modern home settings. We deploy a sophisticated marriage of practical material engineering and timeless, geometric form.</p>
-                <p>Centered around high-density silicone compounds, our collection offers superior heat defense and resilience. From food-contact essentials to versatile storage tools, every item reflects a singular manufacturing standard.</p>
+                <p data-lang="ja">NAIORIOはWYAX Co., Ltd.の基幹ブランドです。高密度シリコン素材を核とし、極めて高い耐熱性と耐久性を実現しました。調理器具から多機能収納ツールまで、暮らしの質を底上げする製品を開発しています。</p>
+                <p data-lang="en">NAIORIO is the primary proprietary brand cultivated by WYAX Co., Ltd., engineered to introduce absolute operational trust into modern home settings. Centered around high-density silicone, our collection offers superior heat defense and resilience.</p>
             </div>
         </div>
     </section>
 
-    <!-- PRODUCTS -->
     <section id="products" class="container page-section">
         <div class="products-grid">
-            <div class="product-card"><div class="product-card-image"><img src="coaster01.jpg" alt="Coasters"></div><div class="product-info"><div class="product-title">COASTERS</div><div class="product-desc">Premium-grade silicone, waterproof and high thermal shield protection.</div></div></div>
-            <div class="product-card"><div class="product-card-image"><img src="pan01.jpg" alt="Pot Mats"></div><div class="product-info"><div class="product-title">POT MATS</div><div class="product-desc">Heavy-duty thick structure tuned for critical thermal isolation.</div></div></div>
-            <div class="product-card"><div class="product-card-image"><img src="glove01.jpg" alt="Oven Mitts"></div><div class="product-info"><div class="product-title">OVEN MITTS</div><div class="product-desc">Multi-layered defensive layout certified to clear hot zone manipulation safely.</div></div></div>
-            <div class="product-card"><div class="product-card-image"><img src="lid01.jpg" alt="Bowl Lids"></div><div class="product-info"><div class="product-title">BOWL LIDS</div><div class="product-desc">High-stretch adaptable flexible caps built to forge solid airtight boundaries.</div></div></div>
+            <div class="product-card"><div class="product-card-image"><img src="coaster01.jpg" alt="Coasters"></div><div class="product-info"><div class="product-title">COASTERS</div><div class="product-desc" data-lang="ja">防水性と断熱性に優れたシリコンコースター。テーブルを熱や水分から保護します。</div><div class="product-desc" data-lang="en">Waterproof and heat-resistant silicone coasters to shield table surfaces.</div></div></div>
+            <div class="product-card"><div class="product-card-image"><img src="pan01.jpg" alt="Pot Mats"></div><div class="product-info"><div class="product-title">HEAT RESISTANT POT MATS</div><div class="product-desc" data-lang="ja">厚手で安定感のある耐熱マット。熱い鍋からカウンタートップを守ります。</div><div class="product-desc" data-lang="en">Thick heat-resistant mats providing secure protection for countertops.</div></div></div>
+            <div class="product-card"><div class="product-card-image"><img src="glove01.jpg" alt="Oven Mitts"></div><div class="product-info"><div class="product-title">OVEN MITTS</div><div class="product-desc" data-lang="ja">滑りにくいグリップと高い断熱性で、調理器具の取り扱いを安全に行えます。</div><div class="product-desc" data-lang="en">Anti-slip grip and thermal insulation for safe cookware handling.</div></div></div>
+            <div class="product-card"><div class="product-card-image"><img src="lid01.jpg" alt="Bowl Lids"></div><div class="product-info"><div class="product-title">BOWL LIDS</div><div class="product-desc" data-lang="ja">伸縮性に優れた蓋で密閉性を確保し、鮮度を長く保ちます。</div><div class="product-desc" data-lang="en">High-elasticity lids creating airtight seals to maintain food freshness.</div></div></div>
         </div>
     </section>
 
-    <!-- ABOUT -->
     <section id="about" class="container page-section">
-        <div class="about-layout">
-            <div class="about-statement">
+        <div class="grid-2">
+            <div>
                 <h4>Corporate Vision</h4>
-                <p>WYAX Co., Ltd. operates at the intersection of specialized home-goods fabrication, strategic international trade, and proprietary brand cultivation. We identify pragmatic values rooted within regional lifestyles, actualize them via advanced manufacturing assets, and maintain a seamless global supply chain.</p>
+                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の製造と国際貿易を通じて、世界中のお客様に洗練された暮らしを提案します。厳格な品質管理のもと、持続可能で実用的な製品をお届けします。</p>
+                <p data-lang="en">WYAX Co., Ltd. operates at the intersection of specialized home-goods fabrication, strategic international trade, and brand cultivation. We enrich global households with sustainable and practical products.</p>
             </div>
             <table class="company-info-table">
                 <tr><th>Company</th><td>WYAX Co., Ltd.</td></tr>
