@@ -6,12 +6,12 @@
     <title>WYAX Co., Ltd. | NAIORIO Premium Silicone Ware</title>
     <style>
         :root {
-            /* 灰绿高级主色调定义 */
-            --primary-sage: #5a6b5c;      /* 核心灰绿主色 */
-            --light-sage: #f2f5f3;        /* 超浅灰绿背景 */
-            --dark-slate: #2c352e;        /* 深灰绿（文字与页脚） */
-            --slate-gray: #7f8c8d;        /* 辅助灰色 */
-            --border-line: #d1dad4;       /* 架构线条颜色 */
+            /* 旷野灰绿高级色调 */
+            --primary-sage: #5a6b5c;      /* 核心灰绿 */
+            --light-sage: #f4f6f4;        /* 超浅灰绿背景 */
+            --dark-slate: #2c332e;        /* 深石板绿 */
+            --line-gray: #c4cdc7;         /* 艺术线条专属色 */
+            --text-main: #333333;
             --bg-white: #ffffff;
             
             /* 全局指定 Helvetica 字体族 */
@@ -26,47 +26,34 @@
 
         body {
             font-family: var(--font-helvetica);
-            color: var(--dark-slate);
-            line-height: 1.7;
+            color: var(--text-main);
+            line-height: 1.8;
             background-color: var(--bg-white);
-            font-style: normal !important; /* 严格锁定，全局坚决不要斜体 */
+            /* 全局坚决不要斜体，坚决不要粗体 */
+            font-style: normal !important;
+            font-weight: 400 !important;
             overflow-x: hidden;
         }
 
-        /* 强制所有排版元素均不倾斜 */
-        h1, h2, h3, h4, p, a, span, li, button, div {
+        /* 强制所有排版元素均不倾斜、不加粗 */
+        h1, h2, h3, h4, p, a, span, li, button, div, th, td, strong {
             font-style: normal !important;
-        }
-
-        /* 视觉线框与网格背景装饰 */
-        .grid-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-            background-image: 
-                linear-gradient(to right, rgba(90, 107, 92, 0.03) 1px, transparent 1px),
-                linear-gradient(to bottom, rgba(90, 107, 92, 0.03) 1px, transparent 1px);
-            background-size: 40px 40px;
+            font-weight: 400 !important;
         }
 
         .container {
             width: 90%;
-            max-width: 1100px;
+            max-width: 1000px;
             margin: 0 auto;
         }
 
         /* Header & Navigation */
         header {
-            background-color: rgba(255, 255, 255, 0.95);
-            border-bottom: 1px solid var(--border-line);
+            background-color: var(--bg-white);
+            border-bottom: 1px solid var(--line-gray);
             position: sticky;
             top: 0;
             z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
         .header-container {
@@ -77,19 +64,17 @@
         }
 
         .logo-box h1 {
-            font-size: 26px;
-            font-weight: 700;
-            letter-spacing: 2px;
+            font-size: 24px;
+            letter-spacing: 3px;
             color: var(--dark-slate);
         }
 
         .logo-box span {
-            font-size: 10px;
+            font-size: 11px;
             color: var(--primary-sage);
             display: block;
             letter-spacing: 1.5px;
-            margin-top: 1px;
-            font-weight: 600;
+            margin-top: 2px;
         }
 
         .nav-right {
@@ -106,39 +91,34 @@
 
         nav ul li a {
             text-decoration: none;
-            color: var(--dark-slate);
-            font-size: 12px; 
-            font-weight: 700;
-            letter-spacing: 1.5px;
-            padding: 8px 12px;
-            border-radius: 2px;
+            color: var(--text-main);
+            font-size: 13px; 
+            letter-spacing: 2px;
+            padding: 6px 10px;
             transition: all 0.3s ease;
         }
 
         nav ul li a:hover, nav ul li a.active-menu {
             color: var(--primary-sage);
-            background-color: var(--light-sage);
+            border-bottom: 1px solid var(--primary-sage);
         }
 
         /* Language Switcher */
         .lang-switch {
             display: flex;
             gap: 4px;
-            border: 1px solid var(--border-line);
+            border: 1px solid var(--line-gray);
             padding: 2px;
-            border-radius: 4px;
             background: var(--light-sage);
         }
 
         .lang-btn {
             background: none;
             border: none;
-            padding: 4px 10px;
+            padding: 3px 8px;
             font-size: 11px;
-            font-weight: bold;
             cursor: pointer;
-            color: var(--slate-gray);
-            border-radius: 3px;
+            color: var(--line-gray);
             transition: all 0.3s ease;
         }
 
@@ -147,13 +127,13 @@
             color: var(--bg-white);
         }
 
-        /* 核心交互机制：默认隐藏所有页面板块，只有激活的才通过动画展开 */
+        /* 单页隐藏展现机制 */
         .page-section {
             display: none; 
             opacity: 0;
-            transform: translateY(15px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-            padding: 100px 0;
+            transform: translateY(10px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            padding: 90px 0;
             min-height: 70vh;
         }
 
@@ -163,158 +143,255 @@
             transform: translateY(0);
         }
 
-        /* 页面大标题设计（带几何线条元素） */
+        /* 轻量艺术标题 */
         .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-            position: relative;
+            margin-bottom: 50px;
         }
 
         .section-header h2 {
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 3px;
+            font-size: 22px;
+            letter-spacing: 4px;
             text-transform: uppercase;
             color: var(--dark-slate);
-            display: inline-block;
-            padding-bottom: 15px;
         }
 
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            bottom: 0;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 2px;
-            background-color: var(--primary-sage);
-        }
-
-        /* 装饰性分割线条组件 */
-        .decor-line {
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(to right, transparent, var(--border-line), transparent);
-            margin: 40px 0;
-        }
-
-        /* 1. HOME Section */
-        .hero-block {
-            text-align: center;
-            max-width: 850px;
-            margin: 0 auto;
+        /* ==========================================
+           1. HOME SECTION - 产品空间架构线框图
+           ========================================== */
+        .home-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 60px;
+            align-items: center;
         }
 
         .hero-block h3 {
-            font-size: 36px;
-            font-weight: 700;
+            font-size: 28px;
             color: var(--primary-sage);
-            margin-bottom: 30px;
-            letter-spacing: 0.5px;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
         }
 
         .hero-block p {
-            font-size: 16px;
-            color: var(--dark-slate);
-            margin-bottom: 25px;
+            font-size: 15px;
+            color: var(--text-main);
+            margin-bottom: 20px;
         }
 
-        .home-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+        /* 图形线条：产品陈列空间架构效果 */
+        .home-graphic-lines {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border: 1px solid var(--line-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .home-graphic-lines::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            bottom: 20px;
+            left: 50%;
+            width: 1px;
+            background-color: var(--primary-sage);
+        }
+
+        .home-graphic-lines::after {
+            content: '';
+            position: absolute;
+            left: 20px;
+            right: 20px;
+            top: 45%;
+            height: 1px;
+            background-color: var(--line-gray);
+        }
+
+        .inner-line-box {
+            width: 65%;
+            height: 55%;
+            border: 1px dashed var(--primary-sage);
+            position: relative;
+        }
+
+        /* 右侧模拟几何尺度测绘线 */
+        .inner-line-box::before {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            border-top: 1px solid var(--primary-sage);
+            border-bottom: 1px solid var(--primary-sage);
+        }
+
+        .inner-line-box::after {
+            content: 'SCALE 1:1 / NAIORIO';
+            position: absolute;
+            bottom: -35px;
+            right: 0;
+            font-size: 10px;
+            letter-spacing: 3px;
+            color: var(--primary-sage);
+        }
+
+        .home-sub-features {
             margin-top: 60px;
-            text-align: left;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            border-top: 1px solid var(--line-gray);
+            padding-top: 40px;
         }
 
-        .home-feature-box {
-            padding: 35px;
-            background-color: var(--light-sage);
-            border-left: 4px solid var(--primary-sage);
+        .feature-text-item h4 {
+            font-size: 16px;
+            color: var(--primary-sage);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
-        .home-feature-box h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: var(--dark-slate);
-        }
-
-        /* 2. CONCEPT Section */
-        .content-layout {
-            max-width: 850px;
-            margin: 0 auto;
+        /* ==========================================
+           2. CONCEPT SECTION - 三维形态透视线框图
+           ========================================== */
+        .concept-layout {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
+            align-items: start;
         }
 
         .concept-paragraph {
             font-size: 15px;
-            color: var(--dark-slate);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             text-align: justify;
         }
 
-        .concept-highlights {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 50px;
+        /* 图形线条：产品形态透视艺术线条 */
+        .concept-graphic-lines {
+            width: 100%;
+            height: 340px;
+            position: relative;
+            border-left: 1px solid var(--line-gray);
+            border-bottom: 1px solid var(--line-gray);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 30px;
         }
 
-        .highlight-item {
-            border: 1px solid var(--border-line);
-            padding: 30px 20px;
-            text-align: center;
-            background-color: #fff;
+        .perspective-box-1 {
+            width: 100%;
+            height: 60px;
+            border: 1px solid var(--primary-sage);
+            transform: skewX(-20deg);
+            position: relative;
         }
 
-        .highlight-item h4 {
-            font-size: 15px;
+        .perspective-box-2 {
+            width: 80%;
+            height: 120px;
+            border: 1px dashed var(--line-gray);
+            align-self: flex-end;
+            transform: skewX(15deg);
+            position: relative;
+        }
+
+        .perspective-box-2::after {
+            content: 'FORM FOLLOWS FUNCTION';
+            position: absolute;
+            left: -40px;
+            bottom: 10px;
+            font-size: 9px;
+            letter-spacing: 2px;
+            color: var(--slate-gray);
+            transform: rotate(-90deg);
+            transform-origin: left bottom;
+        }
+
+        .concept-architecture {
+            margin-top: 40px;
+            border-top: 1px dashed var(--line-gray);
+            padding-top: 30px;
+        }
+
+        .arch-row {
+            margin-bottom: 15px;
+        }
+
+        .arch-row span {
+            font-size: 11px;
             color: var(--primary-sage);
-            margin-bottom: 12px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
+            display: block;
         }
 
-        /* 3. BRAND Section */
-        .brand-intro {
+        /* ==========================================
+           3. BRAND SECTION - 材质层级平行线条图形
+           ========================================== */
+        .brand-layout {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        /* 图形线条：高分子多层平行艺术线条 */
+        .brand-texture-lines {
+            height: 280px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            padding: 20px 0;
+        }
+
+        /* 绘制一组平行的长短不对称工艺线条，模拟高端材质纤维与纯净感 */
+        .brand-texture-lines div {
+            height: 1px;
+            background-color: var(--line-gray);
+        }
+        .brand-texture-lines .line-short-1 { width: 40%; background-color: var(--primary-sage); }
+        .brand-texture-lines .line-long-1 { width: 100%; }
+        .brand-texture-lines .line-medium-1 { width: 75%; }
+        .brand-texture-lines .line-short-2 { width: 25%; background-color: var(--primary-sage); }
+        .brand-texture-lines .line-long-2 { width: 90%; }
+
+        .brand-story-box {
+            border: 1px solid var(--line-gray);
+            padding: 40px;
             background-color: var(--light-sage);
-            padding: 50px;
-            border-radius: 2px;
-            margin-bottom: 50px;
-            border: 1px solid var(--border-line);
         }
 
-        .brand-intro h4 {
-            font-size: 20px;
+        .brand-story-box h4 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
             color: var(--dark-slate);
-            margin-bottom: 20px;
-            letter-spacing: 1px;
         }
 
-        /* 4. PRODUCTS Section */
+        /* ==========================================
+           4. PRODUCTS SECTION
+           ========================================== */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 35px;
         }
 
         .product-card {
             background: var(--bg-white);
-            border: 1px solid var(--border-line);
+            border: 1px solid var(--line-gray);
             overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--primary-sage);
-            box-shadow: 0 10px 20px rgba(90,107,92,0.05);
         }
 
         .product-image {
             width: 100%;
-            height: 300px;
+            height: 280px;
             background-color: var(--light-sage);
-            overflow: hidden;
         }
 
         .product-image img {
@@ -324,14 +401,13 @@
         }
 
         .product-info {
-            padding: 25px;
-            border-top: 1px solid var(--border-line);
+            padding: 20px;
+            border-top: 1px solid var(--line-gray);
         }
 
         .product-title {
             font-size: 15px;
-            font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
             color: var(--dark-slate);
         }
@@ -346,65 +422,90 @@
         .product-features {
             list-style: none;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .product-features li {
-            font-size: 10px;
-            font-weight: 700;
-            background-color: var(--light-sage);
+            font-size: 11px;
             color: var(--primary-sage);
-            padding: 3px 8px;
-            border: 1px solid var(--border-line);
+            border: 1px solid var(--line-gray);
+            padding: 2px 6px;
         }
 
-        /* 5. ABOUT Section */
-        .about-wrapper {
+        /* ==========================================
+           5. ABOUT SECTION - 工艺图纸架构纵线
+           ========================================== */
+        .about-layout {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 60px;
             align-items: start;
         }
 
-        .company-table {
+        .company-info-table {
             width: 100%;
             border-collapse: collapse;
+            position: relative;
         }
 
-        .company-table th, .company-table td {
-            padding: 18px;
-            text-align: left;
-            border-bottom: 1px solid var(--border-line);
+        /* 表格左侧精细的图纸工艺定位纵线 */
+        .company-info-table::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -15px;
+            bottom: 0;
+            width: 1px;
+            background-color: var(--primary-sage);
+        }
+
+        .company-info-table tr {
+            border-bottom: 1px solid var(--line-gray);
+        }
+
+        .company-info-table th, .company-info-table td {
+            padding: 20px 10px;
             font-size: 14px;
+            vertical-align: top;
         }
 
-        .company-table th {
+        .company-info-table th {
             width: 30%;
             color: var(--primary-sage);
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
-        .about-vision {
-            background-color: var(--light-sage);
-            padding: 40px;
-            border-right: 4px solid var(--primary-sage);
+        .about-statement {
+            padding: 30px;
+            border: 1px dashed var(--primary-sage);
+            position: relative;
         }
 
-        .about-vision h4 {
-            font-size: 18px;
-            margin-bottom: 15px;
+        /* 给声明框外围增加不闭合的艺术切线 */
+        .about-statement::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            width: 40px;
+            height: 1px;
+            background-color: var(--primary-sage);
+        }
+
+        .about-statement h4 {
+            font-size: 16px;
             color: var(--dark-slate);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         /* Footer Section */
         footer {
             background-color: var(--dark-slate);
-            color: rgba(255, 255, 255, 0.8);
-            padding: 40px 0;
-            font-size: 12px;
-            border-top: 4px solid var(--primary-sage);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 45px 0;
+            font-size: 13px;
+            border-top: 1px solid var(--primary-sage);
         }
 
         .footer-flex {
@@ -416,22 +517,23 @@
         .footer-logo h4 {
             color: #fff;
             font-size: 18px;
-            letter-spacing: 1px;
+            letter-spacing: 2px;
         }
 
         .footer-logo span {
             color: var(--primary-sage);
-            font-size: 9px;
+            font-size: 10px;
             display: block;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
         }
 
         .copyright {
-            color: #77847a;
+            color: #6e7970;
             letter-spacing: 0.5px;
+            font-size: 11px;
         }
 
-        /* Language display rules */
+        /* 双语控制 */
         [data-lang] {
             display: none;
         }
@@ -441,18 +543,15 @@
         body.lang-en span[data-lang="en"] { display: inline; }
 
         @media (max-width: 768px) {
-            .header-container { flex-direction: column; gap: 15px; }
-            .nav-right { flex-direction: column; gap: 15px; }
+            .header-container, .nav-right, .home-layout, .concept-layout, .brand-layout, .about-layout, .footer-flex { flex-direction: column; grid-template-columns: 1fr; gap: 30px; }
             nav ul { gap: 10px; }
-            .home-grid, .concept-highlights, .about-wrapper { grid-template-columns: 1fr; }
-            .footer-flex { flex-direction: column; gap: 15px; text-align: center; }
+            .home-sub-features { grid-template-columns: 1fr; }
+            .company-info-table::before { display: none; }
+            .concept-graphic-lines, .brand-texture-lines { height: 200px; }
         }
     </style>
 </head>
-<body class="lang-ja"> <!-- 默认展示日文系统 -->
-
-    <!-- 全局背景线条网格 -->
-    <div class="grid-lines"></div>
+<body class="lang-ja">
 
     <!-- Header -->
     <header>
@@ -464,7 +563,6 @@
             <div class="nav-right">
                 <nav>
                     <ul>
-                        <!-- 点击这些菜单不会跳转新页面，而是触发独家切换机制显示对应内容 -->
                         <li><a href="javascript:void(0)" class="menu-link active-menu" onclick="showSection('home', this)">HOME</a></li>
                         <li><a href="javascript:void(0)" class="menu-link" onclick="showSection('concept', this)">CONCEPT</a></li>
                         <li><a href="javascript:void(0)" class="menu-link" onclick="showSection('brand', this)">BRAND</a></li>
@@ -480,29 +578,34 @@
         </div>
     </header>
 
-    <!-- 1. HOME SECTION (默认展示) -->
+    <!-- 1. HOME SECTION (含产品空间架构图形线条) -->
     <section id="home" class="container page-section active-page">
-        <div class="hero-block">
-            <h3 data-lang="ja">上質な暮らしに寄り添う、極限のシリコンウェア。</h3>
-            <h3 data-lang="en">Minimalist Silicone Ware for Elevated Living.</h3>
+        <div class="home-layout">
+            <div class="hero-block">
+                <h3 data-lang="ja">上質な暮らしに寄り添う、極限のシリコンウェア。</h3>
+                <h3 data-lang="en">Minimalist Silicone Ware for Elevated Living.</h3>
+                
+                <p data-lang="ja">功能美とミニマリズムの融合。WYAX Co., Ltd. は、洗練されたデザインと優れた実用性を兼ね備えたプレミアムな家庭用品を提供し、世界中のモダンなライフスタイルに新しい价值をもたらします。</p>
+                <p data-lang="en">The seamless blend of functional beauty and core minimalism. WYAX Co., Ltd. delivers premium household products crafted with sophisticated design and exceptional utility, introducing a refined standard to modern lifestyles worldwide.</p>
+                
+                <p data-lang="ja">日常の何気ない道具に洗練をもたらし、住空間をより美しく、よりシンプルに整えるためのクリエイションを続けています。</p>
+                <p data-lang="en">We continuously innovate to bring sophistication to everyday items, keeping your living space beautiful, organized, and effortlessly simple.</p>
+            </div>
             
-            <p data-lang="ja">機能美とミニマリズムの融合。WYAX Co., Ltd. は、洗练されたデザインと優れた実用性を兼ね備えたプレミアムな家庭用品を提供し、世界中のモダンなライフスタイルに新しい価値をもたらします。</p>
-            <p data-lang="en">The seamless blend of functional beauty and core minimalism. WYAX Co., Ltd. delivers premium household products crafted with sophisticated design and exceptional utility, introducing a refined standard to modern lifestyles worldwide.</p>
-            
-            <p data-lang="ja">私たちは、日常の何気ない道具に洗練をもたらし、住空間をより美しく、よりシンプルに整えるためのクリエイションを続けています。</p>
-            <p data-lang="en">We continuously innovate to bring sophistication to everyday items, keeping your living space beautiful, organized, and effortlessly simple.</p>
+            <!-- 独立线框视觉图形（非背景格子） -->
+            <div class="home-graphic-lines">
+                <div class="inner-line-box"></div>
+            </div>
         </div>
 
-        <div class="decor-line"></div>
-
-        <div class="home-grid">
-            <div class="home-feature-box">
+        <div class="home-sub-features">
+            <div class="feature-text-item">
                 <h4 data-lang="ja">グローバルな貿易と開発</h4>
                 <h4 data-lang="en">Global Trade & Development</h4>
                 <p data-lang="ja">日本国内のみならず、国際的な視点から選び抜かれた最高品質のプロダクト開発を展開しています。</p>
                 <p data-lang="en">We develop and distribute top-tier household items sourced and curated with a strict international perspective.</p>
             </div>
-            <div class="home-feature-box">
+            <div class="feature-text-item">
                 <h4 data-lang="ja">妥協のない品質基準</h4>
                 <h4 data-lang="en">Uncompromising Quality</h4>
                 <p data-lang="ja">食品グレードの安全な素材選定から、ディテールに至るまで徹底した品質管理を行っています。</p>
@@ -511,178 +614,141 @@
         </div>
     </section>
 
-    <!-- 2. CONCEPT SECTION (点击后展现) -->
+    <!-- 2. CONCEPT SECTION (含形态透视艺术线框) -->
     <section id="concept" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Brand Concept</h2>
             <h2 data-lang="en">Brand Concept</h2>
         </div>
-        <div class="content-layout">
-            <p class="concept-paragraph" data-lang="ja">私たちは、単なる調理器具や日用品を作るのではなく、空間そのものと調和する「静かな美しさ」と、毎日使うたびに感動を覚えるような「緻密な機能性」の調和を追求しています。</p>
-            <p class="concept-paragraph" data-lang="en">Rather than producing mere tools, we pursue the perfect harmony between a "quiet beauty" that subtly blends with any space and a "precise functionality" that inspires with every single use.</p>
-            
-            <p class="concept-paragraph" data-lang="ja">無駄な装飾を徹底的にそぎ落とすことで、素材が持つ本来のポテンシャルを引き出し、現代の忙しい日々の中に穏やかなリズムと豊かな時間をもたらすプロダクトを提案します。ミニマリズムとは、何も無いことではなく、大切なものだけが研ぎ澄まされている状態だと私たちは信じています。</p>
-            <p class="concept-paragraph" data-lang="en">By thoroughly stripping away unnecessary ornamentation, we unlock the intrinsic potential of materials, offering distinctive products that introduce a calming rhythm and mindful moments into contemporary life. We believe minimalism is not about empty space, but about keeping only what truly matters perfectly refined.</p>
-            
-            <div class="concept-highlights">
-                <div class="highlight-item">
-                    <h4>MINIMALISM</h4>
-                    <p data-lang="ja">空間を邪魔しない調和</p>
-                    <p data-lang="en">Harmony with space</p>
+        <div class="concept-layout">
+            <div class="content-narrow">
+                <p class="concept-paragraph" data-lang="ja">私たちは、単なる調理器具や日用品を作るのではなく、空间そのものと調和する「静かな美しさ」と、毎日使うたびに感動を覚えるような「緻密な機能性」の調和を追求しています。</p>
+                <p class="concept-paragraph" data-lang="en">Rather than producing mere tools, we pursue the perfect harmony between a "quiet beauty" that subtly blends with any space and a "precise functionality" that inspires with every single use.</p>
+                
+                <p class="concept-paragraph" data-lang="ja">無駄な装飾を徹底的にそぎ落とすことで、素材が持つ本来のポテンシャルを引き出し、現代の忙しい日々の中に穏やかなリズムと豊かな時間をもたらすプロダクトを提案します。ミニマリズムとは、何も無いことではなく、大切なものだけが研ぎ澄まされている状態だと私たちは信じています。</p>
+                <p class="concept-paragraph" data-lang="en">By thoroughly stripping away unnecessary ornamentation, we unlock the intrinsic potential of materials, offering distinctive products that introduce a calming rhythm and mindful moments into contemporary life. We believe minimalism is not about empty space, but about keeping only what truly matters perfectly refined.</p>
+                
+                <div class="concept-architecture">
+                    <div class="arch-row">
+                        <span>01 / MINIMALISM</span>
+                        <p data-lang="ja">空間を邪魔しない調和</p><p data-lang="en">Harmony with space</p>
+                    </div>
+                    <div class="arch-row">
+                        <span>02 / FUNCTIONAL</span>
+                        <p data-lang="ja">日常を豊かにする利便性</p><p data-lang="en">Utility for daily life</p>
+                    </div>
                 </div>
-                <div class="highlight-item">
-                    <h4>FUNCTIONAL</h4>
-                    <p data-lang="ja">日常を豊かにする利便性</p>
-                    <p data-lang="en">Utility for daily life</p>
-                </div>
-                <div class="highlight-item">
-                    <h4>SUSTAINABLE</h4>
-                    <p data-lang="ja">長く愛せる高い耐久性</p>
-                    <p data-lang="en">Durability for years</p>
-                </div>
+            </div>
+
+            <!-- 独立图形线条：形态透视几何结构 -->
+            <div class="concept-graphic-lines">
+                <div class="perspective-box-1"></div>
+                <div class="perspective-box-2"></div>
             </div>
         </div>
     </section>
 
-    <!-- 3. BRAND SECTION (点击后展现) -->
+    <!-- 3. BRAND SECTION (含高分子材质平行工艺线条) -->
     <section id="brand" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Brand Story</h2>
             <h2 data-lang="en">Brand Story</h2>
         </div>
-        <div class="content-layout">
-            <div class="brand-intro">
-                <h4>- NAIORIO -</h4>
-                <p data-lang="ja"><strong>NAIORIO（ナイオリオ）</strong>は、現代のライフスタイルに洗練された心地よさをもたらすために生まれた、WYAX Co., Ltd. のオリジナル家庭用品ブランドです。</p>
-                <p data-lang="en"><strong>NAIORIO</strong> is a premier home brand meticulously developed by WYAX Co., Ltd. to infuse modern living with refined comfort and visual serenity.</p>
+        <div class="brand-layout">
+            <!-- 独立图形线条：平行美学工艺线条 -->
+            <div class="brand-texture-lines">
+                <div class="line-short-1"></div>
+                <div class="line-long-1"></div>
+                <div class="line-medium-1"></div>
+                <div class="line-short-2"></div>
+                <div class="line-long-2"></div>
             </div>
-            <p class="concept-paragraph" data-lang="ja">私たちは、安全性と美しさを高い次元で両立させるために、最高品質の食品グレード・プレミアムシリコン素材のみを厳選。優れた耐熱性、防滑性、柔軟性を活かし、現代のキッチンやリビングにシームレスに溶け込むプロダクトを生み出しています。</p>
-            <p class="concept-paragraph" data-lang="en">To bridge absolute safety with high aesthetic form, our collection utilizes exclusively the highest grade of premium food-safe silicone. Leveraging its natural heat resistance, non-slip stability, and flexibility, we design items tailored to integrate seamlessly into contemporary home interiors.</p>
-            <p class="concept-paragraph" data-lang="ja">毎日の家事をもっとクリエイティブに、もっとクリーンに。次世代のライフスタイル・スタンダードをNAIORIOから提案します。</p>
-            <p class="concept-paragraph" data-lang="en">Transforming daily household tasks into creative, clutter-free moments. NAIORIO sets a new contemporary benchmark for modern living.</p>
+
+            <div class="brand-story-box">
+                <h4>- NAIORIO -</h4>
+                <p class="concept-paragraph" data-lang="ja"><strong>NAIORIO（ナイオリオ）</strong>は、現代のライフスタイルに洗練された心地よさをもたらすために生まれた、WYAX Co., Ltd. のオリジナル家庭用品ブランドです。</p>
+                <p class="concept-paragraph" data-lang="en"><strong>NAIORIO</strong> is a premier home brand meticulously developed by WYAX Co., Ltd. to infuse modern living with refined comfort and visual serenity.</p>
+                <p class="concept-paragraph" data-lang="ja">私たちは、安全性と美しさを高い次元で両立させるために、最高品質の食品グレード・プレミアムシリコン素材のみを厳選。優れた耐熱性、防滑性、柔軟性を活かし、現代のキッチンやリビングにシームレスに溶け込むプロダクトを生み出しています。</p>
+                <p class="concept-paragraph" data-lang="en">To bridge absolute safety with high aesthetic form, our collection utilizes exclusively the highest grade of premium food-safe silicone. Leveraging its natural heat resistance, non-slip stability, and flexibility, we design items tailored to integrate seamlessly into contemporary home interiors.</p>
+            </div>
         </div>
     </section>
 
-    <!-- 4. PRODUCTS SECTION (点击后展现) -->
+    <!-- 4. PRODUCTS SECTION -->
     <section id="products" class="container page-section">
         <div class="section-header">
             <h2 data-lang="ja">Product Collection</h2>
             <h2 data-lang="en">Product Collection</h2>
         </div>
-
         <div class="products-grid">
-            <!-- Product 1 -->
             <div class="product-card">
                 <div class="product-image"><img src="02BL1.jpg" alt="Silicone Coasters"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">シリコン コースター</div>
-                    <div class="product-title" data-lang="en">Silicone Coaster Set</div>
-                    <div class="product-desc" data-lang="ja">美しい花のようなディテールとモダンな色彩。滑りにくく、耐熱・防水性に優れたプレミアムデザイン。</div>
-                    <div class="product-desc" data-lang="en">Elegant flower-inspired design with rich texture. Non-slip, heat-resistant, and completely waterproof.</div>
+                    <div class="product-title">SILICONE COASTER SET</div>
+                    <div class="product-desc" data-lang="ja">美しい花のようなディテール。滑りにくく、耐熱・防水性に優れたプレミアムデザイン。</div>
+                    <div class="product-desc" data-lang="en">Elegant flower-inspired design. Non-slip, heat-resistant, and completely waterproof.</div>
                     <ul class="product-features"><li>HEAT RESISTANT</li><li>NON-SLIP</li></ul>
                 </div>
             </div>
-            <!-- Product 2 -->
             <div class="product-card">
                 <div class="product-image"><img src="baking_mat.jpg" alt="Silicone Baking Mat"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">シリコン ベーキングマット</div>
-                    <div class="product-title" data-lang="en">Silicone Baking Mat</div>
-                    <div class="product-desc" data-lang="ja">正確な目盛りが印字された生地がくっつきにくいプロ仕様のマット。洗って繰り返し使えて環境に優しい。</div>
-                    <div class="product-desc" data-lang="en">Non-stick surface with precise measurement guides. Eco-friendly alternative to parchment paper.</div>
+                    <div class="product-title">SILICONE BAKING MAT</div>
+                    <div class="product-desc" data-lang="ja">正確な目盛が印字されたプロ仕様マット。洗って繰り返し使えて環境に優しい。</div>
+                    <div class="product-desc" data-lang="en">Non-stick surface with precise measurement guides. Eco-friendly alternative.</div>
                     <ul class="product-features"><li>ECO-FRIENDLY</li><li>NON-STICK</li></ul>
                 </div>
             </div>
-            <!-- Product 3 -->
             <div class="product-card">
                 <div class="product-image"><img src="oven_glove.jpg" alt="Silicone Oven Gloves"></div>
                 <div class="product-info">
-                    <div class="product-title" data-lang="ja">シリコン オーブンミトン</div>
-                    <div class="product-title" data-lang="en">Silicone Oven Gloves</div>
-                    <div class="product-desc" data-lang="ja">繊細な凸凹テクスチャにより強力なグリップ力を実現。熱いオーブン料理も安全に運べる抜群の耐熱。</div>
-                    <div class="product-desc" data-lang="en">Textured grid grip for maximum stability. Superior heat insulation for handling hot cookware safely.</div>
+                    <div class="product-title">SILICONE OVEN GLOVES</div>
+                    <div class="product-desc" data-lang="ja">繊細な凸凹テクスチャにより強力なグリップ力を実現。抜群の耐熱プロテクション。</div>
+                    <div class="product-desc" data-lang="en">Textured grid grip for maximum stability. Superior heat insulation.</div>
                     <ul class="product-features"><li>MAX PROTECTION</li><li>GRID TEXTURE</li></ul>
-                </div>
-            </div>
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image"><img src="stretch_lids.jpg" alt="Silicone Stretch Lids"></div>
-                <div class="product-info">
-                    <div class="product-title" data-lang="ja">シリコン マルチストレッチ蓋</div>
-                    <div class="product-title" data-lang="en">Silicone Stretch Lids</div>
-                    <div class="product-desc" data-lang="ja">様々な形状の器に柔軟にフィット。密閉性が高く、食品の新鮮さを長持ちさせる万能エコカバー。</div>
-                    <div class="product-desc" data-lang="en">Highly elastic bands fitting various bowl shapes. Creates an airtight seal to lock in food freshness.</div>
-                    <ul class="product-features"><li>AIRTIGHT SEAL</li><li>REUSABLE</li></ul>
-                </div>
-            </div>
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-image"><img src="storage_bags.jpg" alt="Silicone Storage Bags"></div>
-                <div class="product-info">
-                    <div class="product-title" data-lang="ja">シリコン 食品保存袋</div>
-                    <div class="product-title" data-lang="en">Silicone Storage Bags</div>
-                    <div class="product-desc" data-lang="ja">冷蔵・冷凍から湯煎まで対応。漏れを防ぐ安心設計で、野菜や作り置きの鮮度をクリーンに保ちます。</div>
-                    <div class="product-desc" data-lang="en">Leak-proof reusable storage bags. Safe for fridge, freezer, and sous-vide cooking.</div>
-                    <ul class="product-features"><li>LEAK-PROOF</li><li>BPA FREE</li></ul>
-                </div>
-            </div>
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-image"><img src="drying_mat.jpg" alt="Silicone Dish Drying Mat"></div>
-                <div class="product-info">
-                    <div class="product-title" data-lang="ja">シリコン 水切りマット</div>
-                    <div class="product-title" data-lang="en">Silicone Dish Drying Mat</div>
-                    <div class="product-desc" data-lang="ja">リブ（溝）構造が素早い乾燥を促し、使用後は丸めてコンパクトに収納。キッチンの省スペースに最適。</div>
-                    <div class="product-desc" data-lang="en">Smart ridged structure ensures swift drying. Rolls up easily for clutter-free, compact storage.</div>
-                    <ul class="product-features"><li>FAST DRYING</li><li>SPACE SAVING</li></ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 5. ABOUT SECTION (点击后展现) -->
+    <!-- 5. ABOUT SECTION (含左侧测绘长纵线框架) -->
     <section id="about" class="container page-section">
         <div class="section-header">
-            <h2 data-lang="ja">Company Information</h2>
+            <h2 data-lang="ja">Company Info</h2>
             <h2 data-lang="en">Company Info</h2>
         </div>
         
-        <div class="about-wrapper">
-            <table class="company-table">
+        <div class="about-layout">
+            <table class="company-info-table">
                 <tr>
-                    <th data-lang="ja">会社名</th>
-                    <th data-lang="en">Company Name</th>
+                    <th data-lang="ja">会社名</th><th data-lang="en">Company</th>
                     <td>WYAX Co., Ltd.</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">所在地</th>
-                    <th data-lang="en">Address</th>
+                    <th data-lang="ja">所在地</th><th data-lang="en">Address</th>
                     <td data-lang="ja">〒169-0075 東京都新宿区高田馬場１−３１−８</td>
                     <td data-lang="en">1-31-8, Takadanobaba, Shinjuku, Tokyo, 169-0075, Japan</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">電話番号</th>
-                    <th data-lang="en">Tel</th>
+                    <th data-lang="ja">電話番号</th><th data-lang="en">Tel</th>
                     <td data-lang="ja">070-3519-6183</td>
                     <td data-lang="en">+81 (0)70-3519-6183</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">Eメール</th>
-                    <th data-lang="en">Email</th>
+                    <th data-lang="ja">Eメール</th><th data-lang="en">Email</th>
                     <td>info@wyax.jp</td>
                 </tr>
                 <tr>
-                    <th data-lang="ja">公式サイト</th>
-                    <th data-lang="en">Official Site</th>
+                    <th data-lang="ja">公式サイト</th><th data-lang="en">Website</th>
                     <td>www.wyax.jp</td>
                 </tr>
             </table>
 
-            <div class="about-vision">
+            <div class="about-statement">
                 <h4 data-lang="ja">私たちのビジョン</h4>
-                <h4 data-lang="en">Our Corporate Vision</h4>
-                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の国際貿易およびプライベートブランドの開発を通じて、世界中のお客様に洗練された日々の暮らしを提案します。輸出入の架け橋として、確かな品質と優れたデザインを厳選しお届けいたします。</p>
-                <p data-lang="en">Through international commerce and bespoke brand incubation, WYAX Co., Ltd. is committed to enriching global households with elevated standards. As a modern hub of import and export, we bring together rigorous product safety with inspiring design.</p>
+                <h4 data-lang="en">Corporate Vision</h4>
+                <p data-lang="ja">WYAX Co., Ltd. は、高品質な生活雑貨・家庭用品の国際貿易およびプライベートブランドの開発を通じて、世界中のお客様に洗練された日々の暮らしを提案します。</p>
+                <p data-lang="en">Through international commerce and bespoke brand incubation, WYAX Co., Ltd. is committed to enriching global households with elevated standards.</p>
             </div>
         </div>
     </section>
@@ -700,46 +766,28 @@
         </div>
     </footer>
 
-    <!-- 核心交互逻辑脚本 JavaScript -->
+    <!-- 交互脚本 -->
     <script>
-        // 核心页面点击后才显现的隐藏机制控制
         function showSection(sectionId, element) {
-            // 1. 获取所有的页面版块
             const sections = document.querySelectorAll('.page-section');
-            // 2. 将所有页面隐藏并去掉动画激活状态
-            sections.forEach(sec => {
-                sec.classList.remove('active-page');
-            });
+            sections.forEach(sec => sec.classList.remove('active-page'));
             
-            // 3. 激活当前点击的页面，使其淡入显现
             const targetSection = document.getElementById(sectionId);
-            if(targetSection) {
-                targetSection.classList.add('active-page');
-            }
+            if(targetSection) targetSection.classList.add('active-page');
 
-            // 4. 更新导航菜单的高亮状态
             const menuLinks = document.querySelectorAll('.menu-link');
-            menuLinks.forEach(link => {
-                link.classList.remove('active-menu');
-            });
+            menuLinks.forEach(link => link.classList.remove('active-menu'));
             element.classList.add('active-menu');
 
-            // 5. 点击后自动平滑滚动回顶部
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // 英日双语无缝一键切换逻辑
         function switchLang(lang) {
             document.body.className = 'lang-' + lang;
-            
             const buttons = document.querySelectorAll('.lang-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
-            
-            if(lang === 'ja') {
-                buttons[0].classList.add('active');
-            } else {
-                buttons[1].classList.add('active');
-            }
+            if(lang === 'ja') { buttons[0].classList.add('active'); } 
+            else { buttons[1].classList.add('active'); }
         }
     </script>
 </body>
